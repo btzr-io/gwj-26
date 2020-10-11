@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/Lever.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 40.1423, 20.4741 )
+
+[node name="Lever" type="Node2D"]
+script = ExtResource( 1 )
+debug_mode = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Limit_line" type="Line2D" parent="."]
+visible = false
+points = PoolVector2Array( 0, -50, 0, 50 )
+width = 4.0
+default_color = Color( 0, 0.952941, 1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Limit_top" type="Position2D" parent="."]
+position = Vector2( 0, -50 )
+
+[node name="Limit_bottom" type="Position2D" parent="."]
+position = Vector2( 0, 50 )
+
+[node name="Handler" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Handler"]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 1, 1, 1, 0.901961 )
+scale = Vector2( 1, 0.4 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Handler"]
+shape = SubResource( 1 )
