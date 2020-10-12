@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/FollowingCamera2D.gd" type="Script" id=1]
+
+[node name="FollowingCamera2D" type="Camera2D"]
+position = Vector2( 151.361, 77.3625 )
+current = true
+script = ExtResource( 1 )
+min_zoom = 1.0
+DEBUG = true
