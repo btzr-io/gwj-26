@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/Toast.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scripts/LaunchTestButton.gd" type="Script" id=3]
+[ext_resource path="res://scenes/toaster/Toast.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/LaunchTestButton.gd" type="Script" id=2]
 
 [node name="Node2D" type="Node2D"]
 
@@ -14,7 +14,7 @@ margin_right = 253.97
 margin_bottom = 1758.05
 rect_scale = Vector2( 3.3142, 2.99392 )
 text = "Raw"
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -28,7 +28,7 @@ margin_right = 580.974
 margin_bottom = 1758.05
 rect_scale = Vector2( 3.3142, 2.99392 )
 text = "Medium"
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -42,7 +42,7 @@ margin_right = 917.503
 margin_bottom = 1758.05
 rect_scale = Vector2( 3.3142, 2.99392 )
 text = "Burned"
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
