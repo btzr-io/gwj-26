@@ -1,0 +1,245 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/toaster/Lever.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/Toaster.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/toaster/toaster_box.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/toaster/toaster_base.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/toaster/toaster_mask.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/toaster/toaster_front.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/toaster/toaster_shadow.png" type="Texture" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "jump"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Box:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.82 ), Vector2( 1, 0.8 ), Vector2( 1, 1.15 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Box:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 62 ), Vector2( 0, 68 ), Vector2( 0, -35 ), Vector2( 0, -100 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Shadow:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.15, 1 ), Vector2( 1.18, 1 ), Vector2( 1, 1 ), Vector2( 0.8, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Lever:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -260, 93 ), Vector2( -260, 95 ), Vector2( -260, -3 ), Vector2( -260, -105 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Base:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 195 ), Vector2( 0, 195 ), Vector2( 0, 195 ), Vector2( 0, 100 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Box:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0.82 ), Vector2( 1, 0.86 ), Vector2( 1, 0.82 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Box:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -10 ), Vector2( 0, 62 ), Vector2( 0, 44 ), Vector2( 0, 62 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Shadow:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.95, 1 ), Vector2( 1.15, 1 ), Vector2( 1.1, 1 ), Vector2( 1.15, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Lever:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -260, 25 ), Vector2( -260, 93 ), Vector2( -260, 85 ), Vector2( -260, 93 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Base:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 195 ), Vector2( 0, 195 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Box:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.82 ), Vector2( 1.1, 0.65 ), Vector2( 0.9, 1.4 ), Vector2( 1, 0.8 ), Vector2( 1.1, 0.65 ), Vector2( 1, 0.82 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Box:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 62 ), Vector2( 0, 110 ), Vector2( 0, -100 ), Vector2( 0, -400 ), Vector2( 0, 110 ), Vector2( 0, 62 ), Vector2( 0, -10 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Shadow:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.15, 1 ), Vector2( 1.25, 1 ), Vector2( 1, 1 ), Vector2( 0.8, 1 ), Vector2( 1.25, 1 ), Vector2( 1.15, 1 ), Vector2( 0.95, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Lever:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -260, 93 ), Vector2( -260, 133 ), Vector2( -260, -123 ), Vector2( -260, -423 ), Vector2( -260, 133 ), Vector2( -260, 93 ), Vector2( -260, 25 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Base:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 195 ), Vector2( 0, 195 ), Vector2( 0, 180 ), Vector2( 0, -240 ), Vector2( 0, 195 ), Vector2( 0, 195 ), Vector2( 0, 195 ) ]
+}
+
+[node name="Toaster" type="Node2D"]
+position = Vector2( 657.938, 1400 )
+script = ExtResource( 2 )
+
+[node name="Lever" parent="." instance=ExtResource( 1 )]
+modulate = Color( 1, 0.498039, 0.498039, 1 )
+position = Vector2( -260, 25 )
+
+[node name="Shadow" type="Sprite" parent="."]
+position = Vector2( 0, 220 )
+scale = Vector2( 0.95, 1 )
+texture = ExtResource( 8 )
+
+[node name="Base" type="Sprite" parent="."]
+position = Vector2( 0, 195 )
+texture = ExtResource( 5 )
+
+[node name="Box" type="Sprite" parent="."]
+position = Vector2( 0, -10 )
+texture = ExtResource( 4 )
+
+[node name="Mask" type="Sprite" parent="Box"]
+position = Vector2( 0, -109.5 )
+z_index = 2
+z_as_relative = false
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Front" type="Sprite" parent="Box"]
+z_index = 2
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Spawn" type="Position2D" parent="Box"]
+position = Vector2( 0, 50 )
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+anims/jump = SubResource( 1 )
+anims/launch_hold = SubResource( 2 )
+anims/launch_release = SubResource( 3 )
