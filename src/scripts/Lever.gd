@@ -4,8 +4,12 @@ export var debug_mode = false
 
 var active = false
 var clicked = false
+var next_active = false
+var prev_active = false
 var grabbed_offset = Vector2.ZERO
 var mouse_position = Vector2.ZERO
+
+signal on_active_update(active_state)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,7 +54,13 @@ func _process(delta):
 		$Handler.position.y = limited
 	
 	# Lever of the toaster is pressed down
-	active = clicked && $Handler.position.y >= $Limit_bottom.position.y - 1.0
+	prev_active = active
+	var next_active = clicked && $Handler.position.y >= $Limit_bottom.position.y - 1.0
+	
+	# Only update on changes
+	if next_active != prev_active:
+		active = next_active
+		emit_signal("on_active_update", active)
 
 func draw_limit():
 	$Limit_line.show()
