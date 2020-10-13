@@ -2,6 +2,8 @@ extends RigidBody2D
 
 export var steer_speed : float = 200
 
+var next_physics_process_position : Vector2 = Vector2()
+var next_physics_process_should_set_position : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +22,17 @@ func _physics_process(delta):
 		horizontal_steering += steer_speed
 	apply_central_impulse(Vector2(horizontal_steering*delta,0))
 
+func _integrate_forces(state):
+	if next_physics_process_should_set_position:
+		next_physics_process_should_set_position = false
+		state.transform.origin = next_physics_process_position
+
+func set_physics_position(pos : Vector2):
+	next_physics_process_position = pos
+	next_physics_process_should_set_position = true
+
 func launch(upspeed : float, toasting_degree):
 	mode=RigidBody2D.MODE_RIGID
-	apply_central_impulse(Vector2(0,-upspeed))
+	linear_velocity = Vector2(0, -upspeed)
+	toasting_degree = clamp(toasting_degree, 0, 1)
+	$Sprite.modulate = Color(1-toasting_degree, 1-toasting_degree, 1-toasting_degree)
