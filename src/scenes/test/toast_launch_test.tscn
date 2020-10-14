@@ -69,51 +69,81 @@ shape = SubResource( 1 )
 
 [node name="Left" type="Node2D" parent="Walls"]
 
-[node name="Wall_left_back" type="Sprite" parent="Walls/Left"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Walls/Left"]
+
+[node name="Back" type="ParallaxLayer" parent="Walls/Left/ParallaxBackground"]
+motion_scale = Vector2( 1, 0.5 )
+
+[node name="Wall_left_back" type="Sprite" parent="Walls/Left/ParallaxBackground/Back"]
 position = Vector2( 82.5, 990 )
+z_as_relative = false
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 330, 0, 165, 1980 )
 
-[node name="Wall_left_middle" type="Sprite" parent="Walls/Left"]
+[node name="Middle" type="ParallaxLayer" parent="Walls/Left/ParallaxBackground"]
+motion_scale = Vector2( 1, 0.75 )
+
+[node name="Wall_left_middle" type="Sprite" parent="Walls/Left/ParallaxBackground/Middle"]
 position = Vector2( 82.5, 990 )
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 165, 0, 165, 1980 )
 
-[node name="Wall_left_front" type="Sprite" parent="Walls/Left"]
+[node name="Front" type="ParallaxLayer" parent="Walls/Left/ParallaxBackground"]
+
+[node name="Wall_left_front" type="Sprite" parent="Walls/Left/ParallaxBackground/Front"]
 position = Vector2( 82.5, 990 )
+z_index = 1
+z_as_relative = false
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 165, 1980 )
 
 [node name="Right" type="Node2D" parent="Walls"]
-position = Vector2( 1290, 0 )
-scale = Vector2( -1, 1 )
+scale = Vector2( 1e-05, 1 )
 
-[node name="Wall_left_back" type="Sprite" parent="Walls/Right"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Walls/Right"]
+offset = Vector2( 1280, 0 )
+scale = Vector2( -1, 1 )
+transform = Transform2D( -1, 0, 0, 1, 1280, 0 )
+
+[node name="Back" type="ParallaxLayer" parent="Walls/Right/ParallaxBackground"]
+motion_scale = Vector2( 1, 0.5 )
+
+[node name="Wall_left_back" type="Sprite" parent="Walls/Right/ParallaxBackground/Back"]
 position = Vector2( 82.5, 990 )
+z_as_relative = false
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 330, 0, 165, 1980 )
 
-[node name="Wall_left_middle" type="Sprite" parent="Walls/Right"]
+[node name="Middle" type="ParallaxLayer" parent="Walls/Right/ParallaxBackground"]
+motion_scale = Vector2( 1, 0.75 )
+
+[node name="Wall_left_middle" type="Sprite" parent="Walls/Right/ParallaxBackground/Middle"]
 position = Vector2( 82.5, 990 )
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 165, 0, 165, 1980 )
 
-[node name="Wall_left_front" type="Sprite" parent="Walls/Right"]
+[node name="Front" type="ParallaxLayer" parent="Walls/Right/ParallaxBackground"]
+
+[node name="Wall_left_front" type="Sprite" parent="Walls/Right/ParallaxBackground/Front"]
 position = Vector2( 82.5, 990 )
+z_index = 1
+z_as_relative = false
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 165, 1980 )
 
 [node name="Collisions" type="CanvasLayer" parent="Walls"]
+follow_viewport_enable = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Walls/Collisions"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Collisions/StaticBody2D"]
+position = Vector2( 1.7818, 0 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Collisions/StaticBody2D"]
