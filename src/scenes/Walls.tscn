@@ -1,38 +1,38 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/sprites/background/walls.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Walls.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 82.5, 1980 )
 
 [node name="Walls" type="Node2D"]
+script = ExtResource( 2 )
 
-[node name="Left" type="Node2D" parent="."]
+[node name="Left" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Left"]
-
-[node name="Back" type="ParallaxLayer" parent="Left/ParallaxBackground"]
+[node name="Back" type="ParallaxLayer" parent="Left"]
 motion_scale = Vector2( 1, 0.5 )
 
-[node name="Wall_left_back" type="Sprite" parent="Left/ParallaxBackground/Back"]
+[node name="Wall" type="Sprite" parent="Left/Back"]
 position = Vector2( 82.5, 990 )
 z_as_relative = false
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 330, 0, 165, 1980 )
 
-[node name="Middle" type="ParallaxLayer" parent="Left/ParallaxBackground"]
+[node name="Middle" type="ParallaxLayer" parent="Left"]
 motion_scale = Vector2( 1, 0.75 )
 
-[node name="Wall_left_middle" type="Sprite" parent="Left/ParallaxBackground/Middle"]
+[node name="Wall" type="Sprite" parent="Left/Middle"]
 position = Vector2( 82.5, 990 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 165, 0, 165, 1980 )
 
-[node name="Front" type="ParallaxLayer" parent="Left/ParallaxBackground"]
+[node name="Front" type="ParallaxLayer" parent="Left"]
 
-[node name="Wall_left_front" type="Sprite" parent="Left/ParallaxBackground/Front"]
+[node name="Wall" type="Sprite" parent="Left/Front"]
 position = Vector2( 82.5, 990 )
 z_index = 1
 z_as_relative = false
@@ -40,37 +40,34 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 165, 1980 )
 
-[node name="Right" type="Node2D" parent="."]
-scale = Vector2( 1e-05, 1 )
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Right"]
+[node name="Right" type="ParallaxBackground" parent="."]
 offset = Vector2( 1280, 0 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 transform = Transform2D( -1, 0, 0, 1, 1280, 0 )
 
-[node name="Back" type="ParallaxLayer" parent="Right/ParallaxBackground"]
+[node name="Back" type="ParallaxLayer" parent="Right"]
 motion_scale = Vector2( 1, 0.5 )
 
-[node name="Wall_left_back" type="Sprite" parent="Right/ParallaxBackground/Back"]
+[node name="Wall" type="Sprite" parent="Right/Back"]
 position = Vector2( 82.5, 990 )
 z_as_relative = false
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 330, 0, 165, 1980 )
 
-[node name="Middle" type="ParallaxLayer" parent="Right/ParallaxBackground"]
+[node name="Middle" type="ParallaxLayer" parent="Right"]
 motion_scale = Vector2( 1, 0.75 )
 
-[node name="Wall_left_middle" type="Sprite" parent="Right/ParallaxBackground/Middle"]
+[node name="Wall" type="Sprite" parent="Right/Middle"]
 position = Vector2( 82.5, 990 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 165, 0, 165, 1980 )
 
-[node name="Front" type="ParallaxLayer" parent="Right/ParallaxBackground"]
+[node name="Front" type="ParallaxLayer" parent="Right"]
 
-[node name="Wall_left_front" type="Sprite" parent="Right/ParallaxBackground/Front"]
+[node name="Wall" type="Sprite" parent="Right/Front"]
 position = Vector2( 82.5, 990 )
 z_index = 1
 z_as_relative = false

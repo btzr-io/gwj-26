@@ -68,6 +68,7 @@ shape = SubResource( 1 )
 script = ExtResource( 4 )
 
 [node name="Walls" parent="." instance=ExtResource( 5 )]
+expand_level = 10
 [connection signal="pressed" from="LaunchRaw" to="LaunchRaw" method="_on_LaunchTestButton_pressed"]
 [connection signal="pressed" from="LaunchMedium" to="LaunchMedium" method="_on_LaunchTestButton_pressed"]
 [connection signal="pressed" from="LaunchBurned" to="LaunchBurned" method="_on_LaunchTestButton_pressed"]
