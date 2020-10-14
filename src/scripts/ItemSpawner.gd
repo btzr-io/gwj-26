@@ -8,8 +8,8 @@ var rows = 10
 var y_offset = 200
 var x_offset = 165
 
-var butter = load("res://scenes/Items/Butter.tscn")
-var jam = load("res://scenes/Items/Jam.tscn")
+const JAM = preload("res://scenes/Items/Jam.tscn")
+const BUTTER = preload("res://scenes/Items/Butter.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,28 +33,29 @@ func createArray(columns, rows):
 	return worldItems
 
 func spawnItems(worldItems, columns, rows):
-	var item
 	for x in range(columns):
 		for y in range(rows):
+			var item
 			print("Item Number: %s" % worldItems[x][y])
 			if worldItems[x][y] == "B":
-				item = butter.instance()
+				item = BUTTER.instance()
 				#print("Item is butter")
 			if worldItems[x][y] == "J":
-				item = jam.instance()
+				item = JAM.instance()
 				#print("Item is jam")
 			#If it's the first item to spawn
-			if x == 0 && y == 0:
-				#print("First item")
-				item.position.x = x_offset
-				item.position.y = y_offset
-				print("Item position is: %s" % item.position)
-			else:
-				#print("Not first item")
-				item.position.x = x * x_offset
-				item.position.y = y * y_offset
-				print("Item position is: %s" % item.position)
-			add_child(item)
+			if item:
+				if x == 0 && y == 0:
+					#print("First item")
+					item.position.x = x_offset
+					item.position.y = y_offset
+					print("Item position is: %s" % item.position)
+				else:
+					#print("Not first item")
+					item.position.x = x * x_offset
+					item.position.y = y * y_offset
+					print("Item position is: %s" % item.position)
+				add_child(item)
 
 #For debugging					
 func printArray():
