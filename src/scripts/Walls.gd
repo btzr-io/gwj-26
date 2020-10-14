@@ -8,7 +8,6 @@ extends Node2D
 var layers = ["Front", "Back", "Middle"]
 export(int) var expand_level setget set_expand_level
 
-
 func expand_walls(level):
 	for layer in layers:
 		var grow_top = 1980 * level
@@ -33,12 +32,3 @@ func expand_walls(level):
 func set_expand_level(level):
    expand_level = level
    expand_walls(level)
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
