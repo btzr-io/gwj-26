@@ -10,6 +10,7 @@ func update_progress():
 	var percent = degrees_to_percent($Progress.rotation_degrees)
 	progress = int(round(percent))
 	level = percent_to_level(progress)
+	$Debug_data.text = str("progress: ", progress, " - level: " , level)
 	
 func percent_to_level(percent):
 	var current_level = clamp(percent / (100 / max_level) + 1, 1, max_level)

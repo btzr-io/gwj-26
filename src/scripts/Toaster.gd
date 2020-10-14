@@ -14,7 +14,8 @@ func _ready():
 
 
 func handle_animation_finished(anim_name):
-	if anim_name == "launch_hold":
+	var played_backwards = $Animator.current_animation_position == 0
+	if anim_name == "launch_hold" && !played_backwards:
 		$Heat_meter.start()
 
 func handle_active_update(active_state):

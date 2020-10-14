@@ -164,6 +164,24 @@ modulate = Color( 1, 1, 1, 0 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 5 )
 
+[node name="Debug_data" type="Label" parent="."]
+margin_left = -690.401
+margin_top = -710.109
+margin_right = -297.401
+margin_bottom = -614.109
+rect_scale = Vector2( 9, 9 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Progress: 0, level: 1"
+align = 3
+valign = 3
+uppercase = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
 [node name="Control" type="Control" parent="."]
 margin_left = -380.0
 margin_top = -376.0
