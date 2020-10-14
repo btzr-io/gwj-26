@@ -5,8 +5,10 @@ var worldItems = []
 var columns = 3
 var rows = 10
 
-var y_offset = 350
+var y_offset = 800
 var x_offset = 270
+var currItemPos_X
+var currItemPos_Y
 
 var butter = load("res://scenes/Items/Butter.tscn")
 var jam = load("res://scenes/Items/Jam.tscn")
@@ -32,18 +34,25 @@ func createArray(columns, rows):
 	return worldItems
 
 func spawnItems(worldItems, columns, rows):
+	var item
 	for x in range(columns):
 		for y in range(rows):
 			if worldItems[x][y] == "B":
-				var butterItem = butter.instance()
-				butterItem.position.x = x_offset
-				butterItem.position.y = y_offset
-				add_child(butterItem)
+				item = butter.instance()
 			if worldItems[x][y] == "J":
-				var jamItem = jam.instance()
-				jamItem.position.x = randi() % y_offset
-				jamItem.position.y = randi() % x_offset
-				add_child(jamItem)
+				item = jam.instance()
+			#If it's the first item to spawn
+			if x == 0 && y == 0:
+				print("First item")
+				item.position.x = x_offset
+				item.position.y = y_offset
+				print(item.position)
+			else:
+				print("Not first item")
+				item.position.x = x * x_offset
+				item.position.y = y * y_offset
+				print(item.position)
+			add_child(item)
 
 #For debugging					
 func printArray():
