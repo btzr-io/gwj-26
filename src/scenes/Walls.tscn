@@ -79,7 +79,6 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 165, 1980 )
 
 [node name="Collisions" type="CanvasLayer" parent="."]
-follow_viewport_enable = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Collisions"]
 
