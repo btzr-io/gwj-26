@@ -7,7 +7,7 @@ var next_physics_process_should_set_position : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,6 +32,8 @@ func set_physics_position(pos : Vector2):
 	next_physics_process_should_set_position = true
 
 func launch(upspeed : float, toasting_degree):
+	var cam = $"../FollowingCamera2D"
+	cam.set_following_node(self)
 	mode=RigidBody2D.MODE_RIGID
 	linear_velocity = Vector2(0, -upspeed)
 	toasting_degree = clamp(toasting_degree, 0, 1)
