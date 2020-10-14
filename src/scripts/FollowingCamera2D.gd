@@ -20,9 +20,9 @@ export var DEBUG : bool = false
 var debug_node_toggle : bool = false
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	if(DEBUG):
-		set_following_node($"../RotatingNode2D2/Sprite")
+#func _ready():
+	#if(DEBUG):
+		#set_following_node($"../RotatingNode2D2/Sprite")
 
 func map_valuef(value : float, from_min : float, from_max : float, to_min : float, to_max : float, clamp_result : bool)->float:
 	var weight : float = (value - from_min) / (from_max - from_min)

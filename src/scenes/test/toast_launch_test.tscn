@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/toaster/Toast.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/LaunchTestButton.gd" type="Script" id=2]
 [ext_resource path="res://scenes/FollowingCamera2D.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sprites/background/walls.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 753.547, 176.153 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 82.5, 1980 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -53,7 +57,6 @@ __meta__ = {
 toasting_degree = 0.855
 
 [node name="FollowingCamera2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( 646.63, 953.608 )
 max_zoom = 1.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -61,6 +64,61 @@ position = Vector2( 629.121, 2081.65 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 1 )
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Left" type="Node2D" parent="Walls"]
+
+[node name="Wall_left_back" type="Sprite" parent="Walls/Left"]
+position = Vector2( 82.5, 990 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 330, 0, 165, 1980 )
+
+[node name="Wall_left_middle" type="Sprite" parent="Walls/Left"]
+position = Vector2( 82.5, 990 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 165, 0, 165, 1980 )
+
+[node name="Wall_left_front" type="Sprite" parent="Walls/Left"]
+position = Vector2( 82.5, 990 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 165, 1980 )
+
+[node name="Right" type="Node2D" parent="Walls"]
+position = Vector2( 1290, 0 )
+scale = Vector2( -1, 1 )
+
+[node name="Wall_left_back" type="Sprite" parent="Walls/Right"]
+position = Vector2( 82.5, 990 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 330, 0, 165, 1980 )
+
+[node name="Wall_left_middle" type="Sprite" parent="Walls/Right"]
+position = Vector2( 82.5, 990 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 165, 0, 165, 1980 )
+
+[node name="Wall_left_front" type="Sprite" parent="Walls/Right"]
+position = Vector2( 82.5, 990 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 165, 1980 )
+
+[node name="Collisions" type="CanvasLayer" parent="Walls"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls/Collisions"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Collisions/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Collisions/StaticBody2D"]
+position = Vector2( 1280, 0 )
+shape = SubResource( 2 )
 [connection signal="pressed" from="LaunchRaw" to="LaunchRaw" method="_on_LaunchTestButton_pressed"]
 [connection signal="pressed" from="LaunchMedium" to="LaunchMedium" method="_on_LaunchTestButton_pressed"]
 [connection signal="pressed" from="LaunchBurned" to="LaunchBurned" method="_on_LaunchTestButton_pressed"]
