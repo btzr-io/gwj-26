@@ -46,12 +46,13 @@ func _process(delta):
 		return
 	
 	#Zoom
-	var following_delta_pos : Vector2 = following_node.global_position - last_follow_position
-	var following_delta_distance : float = following_delta_pos.length()
-	var following_speed : float = following_delta_distance / delta
-	var target_zoom : float = map_valuef(following_speed, node_speed_at_min_zoom, node_speed_at_max_zoom, min_zoom, max_zoom, true)
-	var actual_zoom : float = move_toward(zoom.x, target_zoom, zoom_speed * delta)
-	zoom = Vector2(actual_zoom, actual_zoom)
+	if delta > 0:
+		var following_delta_pos : Vector2 = following_node.global_position - last_follow_position
+		var following_delta_distance : float = following_delta_pos.length()
+		var following_speed : float = following_delta_distance / delta
+		var target_zoom : float = map_valuef(following_speed, node_speed_at_min_zoom, node_speed_at_max_zoom, min_zoom, max_zoom, true)
+		var actual_zoom : float = move_toward(zoom.x, target_zoom, zoom_speed * delta)
+		zoom = Vector2(actual_zoom, actual_zoom)
 	
 	last_follow_position = following_node.global_position
 	
