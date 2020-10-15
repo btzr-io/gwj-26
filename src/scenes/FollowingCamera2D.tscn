@@ -13,4 +13,5 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource( 1 )
 min_zoom = 1.0
+max_zoom = 1.0
 DEBUG = true

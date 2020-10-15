@@ -8,7 +8,11 @@
 
 [node name="FollowingCamera2D" parent="." instance=ExtResource( 2 )]
 position = Vector2( 646.63, 953.608 )
+limit_smoothed = true
+drag_margin_bottom = 0.1
 max_zoom = 1.0
+zoom_speed = 0.05
+move_speed = 0.1
 
 [node name="Toaster" parent="." instance=ExtResource( 1 )]
 position = Vector2( 656.195, 1380.27 )
