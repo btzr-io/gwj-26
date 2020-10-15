@@ -1,6 +1,6 @@
 extends Button
 
-export var launch_speed : float = 2000
+export var launch_speed : float = 3500
 export(float, 0, 1) var toasting_degree = 0.7
 
 var launched : bool = false

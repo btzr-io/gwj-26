@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/toaster/Lever.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Toaster.gd" type="Script" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://assets/sprites/toaster/toaster_mask.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/toaster/toaster_front.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/toaster/toaster_shadow.png" type="Texture" id=8]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 179.73, 102.572 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "jump"
@@ -205,6 +208,7 @@ tracks/4/keys = {
 script = ExtResource( 2 )
 
 [node name="Heat_meter" parent="." instance=ExtResource( 3 )]
+visible = false
 
 [node name="Lever" parent="." instance=ExtResource( 1 )]
 modulate = Color( 1, 0.498039, 0.498039, 1 )
@@ -219,6 +223,14 @@ texture = ExtResource( 8 )
 [node name="Base" type="Sprite" parent="."]
 position = Vector2( 0, 195 )
 texture = ExtResource( 5 )
+
+[node name="Collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+shape = SubResource( 4 )
+
+[node name="Spawn" type="Position2D" parent="."]
+position = Vector2( 0, -400 )
 
 [node name="Box" type="Sprite" parent="."]
 position = Vector2( 0, -10 )
@@ -239,9 +251,6 @@ texture = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Spawn" type="Position2D" parent="Box"]
-position = Vector2( 0, 50 )
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 anims/jump = SubResource( 1 )

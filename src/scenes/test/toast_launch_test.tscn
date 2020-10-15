@@ -13,6 +13,9 @@ extents = Vector2( 753.547, 176.153 )
 
 [node name="Toast" parent="." instance=ExtResource( 1 )]
 position = Vector2( 639.224, 1756.05 )
+mass = 5.0
+gravity_scale = 20.0
+steer_speed = 6500.0
 
 [node name="LaunchRaw" type="Button" parent="."]
 margin_left = 172.969
@@ -25,7 +28,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-launch_speed = 1000.0
+launch_speed = 2000.0
 toasting_degree = 0.0
 
 [node name="LaunchMedium" type="Button" parent="."]
@@ -39,7 +42,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-launch_speed = 1500.0
+launch_speed = 3000.0
 toasting_degree = 0.442
 
 [node name="LaunchBurned" type="Button" parent="."]
@@ -53,6 +56,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+launch_speed = 4000.0
 toasting_degree = 0.855
 
 [node name="FollowingCamera2D" parent="." instance=ExtResource( 3 )]

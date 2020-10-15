@@ -1,9 +1,6 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+const TOAST = preload("res://scenes/toaster/Toast.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,9 +21,25 @@ func handle_active_update(active_state):
 	elif !$Lever.clicked:
 		$Heat_meter.stop()
 		$Animator.play("launch_release")
+		yield(get_tree().create_timer(0.2), "timeout")
+		launch_toast()
 	else:
 		$Heat_meter.stop()
 		$Animator.play_backwards("launch_hold")
+
+
+func launch_toast():
+	var launch_speed = 1500
+	var toasting_degree = 0.1
+	var toast = TOAST.instance()
+	add_child(toast)
+	toast.sleeping = true
+	toast.set_physics_position($Spawn.global_position)
+	toast.launch(launch_speed, toasting_degree)
+	yield(get_tree().create_timer(0.2), "timeout")
+	toast.z_index = -1
+
+
 
 # Position to instance the slice of bread
 func get_spawn_position():
