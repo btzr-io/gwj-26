@@ -2,11 +2,19 @@ extends Node2D
 
 var worldItems = []
 
+var rows = 5
 var columns = 3
-var rows = 10
 
-var y_offset = 200
-var x_offset = 165
+#space between each item
+var offset = 325
+
+#with these starting values, it fills the screen
+#var x_start = 290
+#var y_start = 144
+
+#keep x the same but multiple 144 by any factor to move the items up and make the y negative
+var x_start = 290
+var y_start = -1152
 
 const JAM = preload("res://scenes/Items/Jam.tscn")
 const BUTTER = preload("res://scenes/Items/Butter.tscn")
@@ -36,7 +44,9 @@ func spawnItems(worldItems, columns, rows):
 	for x in range(columns):
 		for y in range(rows):
 			var item
-			print("Item Number: %s" % worldItems[x][y])
+			print("Item Symbol: %s" % worldItems[x][y])
+			print("X is: [%s]" % x)
+			print("Y is: [%s]" % y)
 			if worldItems[x][y] == "B":
 				item = BUTTER.instance()
 				#print("Item is butter")
@@ -46,15 +56,21 @@ func spawnItems(worldItems, columns, rows):
 			#If it's the first item to spawn
 			if item:
 				if x == 0 && y == 0:
+					item.position.x = x_start
+					item.position.y = y_start
+				elif x == 0 && y != 0:
 					#print("First item")
-					item.position.x = x_offset
-					item.position.y = y_offset
-					print("Item position is: %s" % item.position)
+					item.position.x = x_start
+					item.position.y = (offset * y) + y_start
+					#print("Item position is: %s" % item.position)
+				elif y == 0 && y != 0:
+					item.position.x = (offset * x) + x_start
+					item.position.y = y_start
 				else:
 					#print("Not first item")
-					item.position.x = x * x_offset
-					item.position.y = y * y_offset
-					print("Item position is: %s" % item.position)
+					item.position.x = (offset * x) + x_start
+					item.position.y = (offset * y) + y_start
+				print("Item position is: %s" % item.position)
 				add_child(item)
 
 #For debugging					
