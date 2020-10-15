@@ -1,9 +1,11 @@
 extends RigidBody2D
 
-export var steer_speed : float = 200
+export var steer_speed : float = 1000
+export var steer_acceleration : float = 4000
 
 var next_physics_process_position : Vector2 = Vector2()
 var next_physics_process_should_set_position : bool = false
+var horizontal_force : float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,12 +22,17 @@ func _physics_process(delta):
 		horizontal_steering -= steer_speed
 	if Input.is_action_pressed("steer_right"):
 		horizontal_steering += steer_speed
-	apply_central_impulse(Vector2(horizontal_steering*delta,0))
+	
+	var new_horizontal_speed = move_toward(linear_velocity.x, horizontal_steering, steer_acceleration*delta)
+	horizontal_force += new_horizontal_speed - linear_velocity.x
+
 
 func _integrate_forces(state):
 	if next_physics_process_should_set_position:
 		next_physics_process_should_set_position = false
 		state.transform.origin = next_physics_process_position
+	state.linear_velocity.x += horizontal_force
+	horizontal_force = 0
 
 func set_physics_position(pos : Vector2):
 	next_physics_process_position = pos
