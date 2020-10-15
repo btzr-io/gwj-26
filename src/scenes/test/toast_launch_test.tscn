@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/toaster/Toast.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/LaunchTestButton.gd" type="Script" id=2]
 [ext_resource path="res://scenes/FollowingCamera2D.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/ItemSpawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Walls.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 753.547, 176.153 )
@@ -65,6 +66,10 @@ position = Vector2( 629.121, 2081.65 )
 shape = SubResource( 1 )
 
 [node name="ItemSpawner" parent="." instance=ExtResource( 4 )]
+
+[node name="Walls" parent="." instance=ExtResource( 5 )]
+position = Vector2( -143.675, 1147.61 )
+expand_level = 10
 [connection signal="pressed" from="LaunchRaw" to="LaunchRaw" method="_on_LaunchTestButton_pressed"]
 [connection signal="pressed" from="LaunchMedium" to="LaunchMedium" method="_on_LaunchTestButton_pressed"]
 [connection signal="pressed" from="LaunchBurned" to="LaunchBurned" method="_on_LaunchTestButton_pressed"]

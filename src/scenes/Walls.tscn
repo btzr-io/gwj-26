@@ -12,7 +12,7 @@ script = ExtResource( 2 )
 [node name="Left" type="ParallaxBackground" parent="."]
 
 [node name="Back" type="ParallaxLayer" parent="Left"]
-motion_scale = Vector2( 1, 0.5 )
+motion_scale = Vector2( 1, 0.35 )
 
 [node name="Wall" type="Sprite" parent="Left/Back"]
 position = Vector2( 82.5, 990 )
@@ -22,7 +22,7 @@ region_enabled = true
 region_rect = Rect2( 330, 0, 165, 1980 )
 
 [node name="Middle" type="ParallaxLayer" parent="Left"]
-motion_scale = Vector2( 1, 0.75 )
+motion_scale = Vector2( 1, 0.62 )
 
 [node name="Wall" type="Sprite" parent="Left/Middle"]
 position = Vector2( 82.5, 990 )
@@ -47,7 +47,7 @@ scale = Vector2( 1, -1 )
 transform = Transform2D( -1, 0, 0, 1, 1280, 0 )
 
 [node name="Back" type="ParallaxLayer" parent="Right"]
-motion_scale = Vector2( 1, 0.5 )
+motion_scale = Vector2( 1, 0.35 )
 
 [node name="Wall" type="Sprite" parent="Right/Back"]
 position = Vector2( 82.5, 990 )
@@ -57,7 +57,7 @@ region_enabled = true
 region_rect = Rect2( 330, 0, 165, 1980 )
 
 [node name="Middle" type="ParallaxLayer" parent="Right"]
-motion_scale = Vector2( 1, 0.75 )
+motion_scale = Vector2( 1, 0.62 )
 
 [node name="Wall" type="Sprite" parent="Right/Middle"]
 position = Vector2( 82.5, 990 )
