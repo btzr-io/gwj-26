@@ -21,7 +21,7 @@ func handle_active_update(active_state):
 	elif !$Lever.clicked:
 		$Heat_meter.stop()
 		$Animator.play("launch_release")
-		yield(get_tree().create_timer(0.2), "timeout")
+		yield(get_tree().create_timer(0.3), "timeout")
 		launch_toast()
 	else:
 		$Heat_meter.stop()
@@ -29,16 +29,14 @@ func handle_active_update(active_state):
 
 
 func launch_toast():
-	var launch_speed = 1500
+	var launch_speed = 2000
 	var toasting_degree = 0.1
 	var toast = TOAST.instance()
-	add_child(toast)
-	toast.sleeping = true
-	toast.set_physics_position($Spawn.global_position)
+	get_tree().current_scene.add_child(toast)
+	toast.global_position = $Spawn.global_position
 	toast.launch(launch_speed, toasting_degree)
 	yield(get_tree().create_timer(0.2), "timeout")
 	toast.z_index = -1
-
 
 
 # Position to instance the slice of bread

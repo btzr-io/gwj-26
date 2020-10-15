@@ -7,9 +7,12 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="FollowingCamera2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 646.63, 953.608 )
+max_zoom = 1.0
 
 [node name="Toaster" parent="." instance=ExtResource( 1 )]
 position = Vector2( 656.195, 1380.27 )
 
 [node name="Walls" parent="." instance=ExtResource( 3 )]
 position = Vector2( 177.989, 1189.8 )
+expand_level = 10
