@@ -29,15 +29,12 @@ func handle_active_update(active_state):
 
 
 func launch_toast():
-	var launch_speed = 2000
-	var toasting_degree = 0.1
+	var launch_speed = 1500 + ( $Heat_meter.progress  * $Heat_meter.level * 10 )
+	var toasting_degree = 0.15 * $Heat_meter.level
 	var toast = TOAST.instance()
 	get_tree().current_scene.add_child(toast)
 	toast.global_position = $Spawn.global_position
 	toast.launch(launch_speed, toasting_degree)
-	yield(get_tree().create_timer(0.2), "timeout")
-	toast.z_index = -1
-
 
 # Position to instance the slice of bread
 func get_spawn_position():
