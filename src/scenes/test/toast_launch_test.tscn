@@ -12,6 +12,7 @@ extents = Vector2( 753.547, 176.153 )
 [node name="Node2D" type="Node2D"]
 
 [node name="Toast" parent="." instance=ExtResource( 1 )]
+position = Vector2( 647.741, 1446.16 )
 
 [node name="LaunchRaw" type="Button" parent="."]
 margin_left = 172.969

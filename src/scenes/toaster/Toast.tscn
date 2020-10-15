@@ -7,7 +7,6 @@
 extents = Vector2( 119.145, 125.579 )
 
 [node name="Toast" type="RigidBody2D"]
-position = Vector2( 625.627, 1688.52 )
 mode = 3
 gravity_scale = 6.0
 script = ExtResource( 1 )
