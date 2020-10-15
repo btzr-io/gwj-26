@@ -24,12 +24,7 @@ var debug_node_toggle : bool = false
 	#if(DEBUG):
 		#set_following_node($"../RotatingNode2D2/Sprite")
 
-func map_valuef(value : float, from_min : float, from_max : float, to_min : float, to_max : float, clamp_result : bool)->float:
-	var weight : float = (value - from_min) / (from_max - from_min)
-	var res : float = lerp(to_min, to_max, weight)
-	if clamp_result:
-		res = clamp(res, to_min, to_max)
-	return res
+
 
 func debug_process():
 	if Input.is_action_just_pressed("DEBUG_1"):
@@ -50,7 +45,7 @@ func _process(delta):
 		var following_delta_pos : Vector2 = following_node.global_position - last_follow_position
 		var following_delta_distance : float = following_delta_pos.length()
 		var following_speed : float = following_delta_distance / delta
-		var target_zoom : float = map_valuef(following_speed, node_speed_at_min_zoom, node_speed_at_max_zoom, min_zoom, max_zoom, true)
+		var target_zoom : float = Util.map_valuef(following_speed, node_speed_at_min_zoom, node_speed_at_max_zoom, min_zoom, max_zoom, true)
 		var actual_zoom : float = move_toward(zoom.x, target_zoom, zoom_speed * delta)
 		zoom = Vector2(actual_zoom, actual_zoom)
 	
