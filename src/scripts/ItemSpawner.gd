@@ -2,7 +2,7 @@ extends Node2D
 
 var worldItems = []
 
-var rows = 5
+var rows = 10
 var columns = 3
 
 #space between each item
@@ -12,9 +12,9 @@ var offset = 325
 #var x_start = 290
 #var y_start = 144
 
-#keep x the same but multiple 144 by any factor to move the items up and make the y negative
+#keep x the same but multiple 144 by any factor to move the items up and keep the y negative
 var x_start = 290
-var y_start = -1152
+var y_start = -2880
 
 const JAM = preload("res://scenes/Items/Jam.tscn")
 const BUTTER = preload("res://scenes/Items/Butter.tscn")
@@ -27,7 +27,7 @@ func _ready():
 
 func createArray(columns, rows):
 	#Symbols for obstacles - Knife, Butter, Jam, Blank
-	var itemOptions = ["K", "B", "J", " "]
+	var itemOptions = ["J", "B"]
 	for x in range(columns):
 		worldItems.append([])
 		worldItems[x].resize(rows)
