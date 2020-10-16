@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GM="*res://scripts/autoload/GameManager.gd"
+Util="*res://scripts/Util.gd"
 
 [debug]
 
