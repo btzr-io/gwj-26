@@ -9,11 +9,10 @@
 [ext_resource path="res://assets/sprites/toaster/toaster_front.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/toaster/toaster_shadow.png" type="Texture" id=8]
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 220, 200 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "jump"
+[sub_resource type="Animation" id=2]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -77,7 +76,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 195 ), Vector2( 0, 195 ), Vector2( 0, 195 ), Vector2( 0, 100 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 0.4
 step = 0.05
 tracks/0/type = "value"
@@ -156,10 +155,10 @@ extents = Vector2( 220, 100 )
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 220, 125 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 220, 150 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=10]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Box:scale")
@@ -231,7 +230,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 10 ), SubResource( 9 ) ]
+"values": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 1 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("Collision/CollisionShape2D:position")
@@ -307,10 +306,10 @@ z_as_relative = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
 z_index = 2
 z_as_relative = false
-shape = SubResource( 9 )
+shape = SubResource( 1 )
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 playback_process_mode = 0
-anims/jump = SubResource( 1 )
-anims/launch_hold = SubResource( 2 )
-anims/launch_release = SubResource( 3 )
+anims/jump = SubResource( 2 )
+anims/launch_hold = SubResource( 3 )
+anims/launch_release = SubResource( 10 )

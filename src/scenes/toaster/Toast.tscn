@@ -4,10 +4,11 @@
 [ext_resource path="res://assets/sprites/placeholders/toast.png" type="Texture" id=2]
 
 [sub_resource type="PhysicsMaterial" id=1]
-bounce = 0.75
+friction = 0.5
+bounce = 0.8
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 109.002, 122.472 )
+extents = Vector2( 111.248, 117.591 )
 
 [node name="Toast" type="RigidBody2D"]
 mode = 3
@@ -15,8 +16,6 @@ mass = 8.6
 physics_material_override = SubResource( 1 )
 gravity_scale = 25.0
 script = ExtResource( 1 )
-steer_speed = 1000.0
-steer_acceleration = 4000.0
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

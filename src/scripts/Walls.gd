@@ -10,13 +10,14 @@ export(int) var expand_level setget set_expand_level
 
 func expand_walls(level):
 	for layer in layers:
-		var grow_top = 1980 * level
-		var position_top = 990 * level
 		# Left side
 		var wall_left_path = "Left" + "/" + layer + "/Wall"
 		var wall_left = get_node_or_null(wall_left_path)
 		
 		if wall_left:
+			var wall_height =  wall_left.region_rect.size.y
+			var grow_top = wall_height * level
+			var position_top = grow_top * 0.5
 			wall_left.position.y -= position_top
 			wall_left.region_rect = wall_left.region_rect.grow_individual(0, grow_top, 0, 0)
 
@@ -25,6 +26,9 @@ func expand_walls(level):
 		var wall_right = get_node_or_null(wall_right_path)
 		
 		if wall_right:
+			var wall_height =  wall_right.region_rect.size.y
+			var grow_top = wall_height * level
+			var position_top = grow_top * 0.5
 			wall_right.position.y -= position_top
 			wall_right.region_rect = wall_right.region_rect.grow_individual(0, grow_top, 0, 0)
 		

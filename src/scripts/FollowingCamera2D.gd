@@ -58,7 +58,13 @@ func _process(delta):
 	
 	
 	#Movement
-	position = lerp(position, following_node.global_position, move_speed)
+	var distance = $Origin.global_position.distance_to(following_node.global_position)
+	var distance_modifier = abs(distance) / 150
+	# Increase speed if object is too far
+	var smooth_speed = move_speed * distance_modifier 
+	var new_position = lerp(global_position.y, following_node.global_position.y, smooth_speed * delta)
+	# Clamp camera position to limits
+	global_position.y = clamp(new_position, -INF, 960)
 	
 	#Shaking
 	if shaking:

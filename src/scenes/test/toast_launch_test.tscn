@@ -61,7 +61,6 @@ toasting_degree = 0.855
 
 [node name="FollowingCamera2D" parent="." instance=ExtResource( 3 )]
 position = Vector2( 646.63, 953.608 )
-max_zoom = 1.0
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 629.121, 2081.65 )

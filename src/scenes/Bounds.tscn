@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 82.5, 960 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 82.5, 960 )
+
+[node name="Bounds" type="Node2D"]
+
+[node name="Collisions" type="StaticBody2D" parent="."]
+
+[node name="Right" type="CollisionShape2D" parent="Collisions"]
+position = Vector2( 1280, 960 )
+shape = SubResource( 1 )
+
+[node name="Left" type="CollisionShape2D" parent="Collisions"]
+position = Vector2( 0, 960 )
+shape = SubResource( 2 )
