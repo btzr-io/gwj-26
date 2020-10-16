@@ -19,6 +19,10 @@ config/name="src"
 run/main_scene="res://scenes/test/toaster_test.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GM="*res://scripts/autoload/GameManager.gd"
+
 [debug]
 
 settings/fps/force_fps=120

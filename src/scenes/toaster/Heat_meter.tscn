@@ -160,11 +160,12 @@ tracks/5/keys = {
 }
 
 [node name="Heat_meter" type="Node2D"]
-modulate = Color( 1, 1, 1, 0 )
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( 0, -300 )
+scale = Vector2( 0.8, 0.8 )
 script = ExtResource( 5 )
 
 [node name="Debug_data" type="Label" parent="."]
+visible = false
 margin_left = -690.401
 margin_top = -710.109
 margin_right = -297.401

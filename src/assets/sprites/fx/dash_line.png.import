@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/walls.png-e625c7a9dfd2b846baefcb8f5da5d218.stex"
+path="res://.import/dash_line.png-e82cc2d588d9a7c5ed7d413d6fb1cecb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/background/walls.png"
-dest_files=[ "res://.import/walls.png-e625c7a9dfd2b846baefcb8f5da5d218.stex" ]
+source_file="res://assets/sprites/fx/dash_line.png"
+dest_files=[ "res://.import/dash_line.png-e82cc2d588d9a7c5ed7d413d6fb1cecb.stex" ]
 
 [params]
 
@@ -19,8 +19,8 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=2
-flags/filter=false
+flags/repeat=1
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

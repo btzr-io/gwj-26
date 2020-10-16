@@ -13,12 +13,26 @@ var last_vertical_velocity = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$Origin.set_as_toplevel(true)
+	$Marker.set_as_toplevel(true)
+	$Max_score.set_as_toplevel(true)
+	connect("start_falling", self, "handle_falling")
 
+func handle_falling():
+	var score = global_position.distance_to($Origin.global_position)
+	# Check for max score
+	if score >= GM.max_score:
+		GM.max_score = score
+		$Max_score.visible = true
+		$Max_score.global_position.y = global_position.y
+	else:
+		# Show last score
+		$Marker.visible = true
+		$Marker.global_position.y = global_position.y
+		print_debug("falling!! " + str(score / 100, "ft"))
+	# Update score
+	GM.score = score
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func _physics_process(delta):
 	var horizontal_steering : float = 0

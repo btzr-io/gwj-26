@@ -33,11 +33,11 @@ motion_scale = Vector2( 1, 0.3 )
 motion_mirroring = Vector2( 0.5, 0 )
 
 [node name="Wall" type="Sprite" parent="Left/Back"]
-position = Vector2( 82.5, 960 )
+position = Vector2( 82, 960 )
 z_as_relative = false
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 330, 0, 165, 1920 )
+region_rect = Rect2( 330, 0, 164, 1920 )
 
 [node name="Middle" type="ParallaxLayer" parent="Left"]
 modulate = Color( 1, 1, 1, 0.784314 )
@@ -45,10 +45,10 @@ motion_scale = Vector2( 1, 0.4 )
 motion_mirroring = Vector2( 0.5, 0 )
 
 [node name="Wall" type="Sprite" parent="Left/Middle"]
-position = Vector2( 82.5, 960 )
+position = Vector2( 82, 960 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 165, 0, 165, 1920 )
+region_rect = Rect2( 165, 0, 164, 1920 )
 
 [node name="Front" type="ParallaxLayer" parent="Left"]
 motion_scale = Vector2( 1, 0.8 )
@@ -60,7 +60,7 @@ z_index = 1
 z_as_relative = false
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 165, 1920 )
+region_rect = Rect2( 0, 0, 164, 1920 )
 
 [node name="Right" type="ParallaxBackground" parent="."]
 layer = -2
@@ -75,11 +75,11 @@ motion_scale = Vector2( 1, 0.35 )
 motion_mirroring = Vector2( 1, 0 )
 
 [node name="Wall" type="Sprite" parent="Right/Back"]
-position = Vector2( 82.5, 960 )
+position = Vector2( 82, 960 )
 z_as_relative = false
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 330, 0, 165, 1920 )
+region_rect = Rect2( 330, 0, 164, 1920 )
 
 [node name="Middle" type="ParallaxLayer" parent="Right"]
 modulate = Color( 1, 1, 1, 0.784314 )
@@ -87,10 +87,10 @@ motion_scale = Vector2( 1, 0.62 )
 motion_mirroring = Vector2( 1, 0 )
 
 [node name="Wall" type="Sprite" parent="Right/Middle"]
-position = Vector2( 82.5, 960 )
+position = Vector2( 82, 960 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 165, 0, 165, 1920 )
+region_rect = Rect2( 165, 0, 164, 1920 )
 
 [node name="Front" type="ParallaxLayer" parent="Right"]
 motion_mirroring = Vector2( 1, 0 )
@@ -101,7 +101,7 @@ z_index = 1
 z_as_relative = false
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 165, 1920 )
+region_rect = Rect2( 0, 0, 164, 1920 )
 
 [node name="Fade_bottom" type="ParallaxBackground" parent="."]
 layer = -1
