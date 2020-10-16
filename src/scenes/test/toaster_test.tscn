@@ -6,10 +6,10 @@
 [ext_resource path="res://scripts/NewItemSpawner.gd" type="Script" id=4]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource( 4 )
 
 [node name="FollowingCamera2D" parent="." instance=ExtResource( 2 )]
 position = Vector2( 646.63, 953.608 )
+limit_top = -10000000
 limit_smoothed = true
 drag_margin_bottom = 0.1
 zoom_speed = 0.05
@@ -21,3 +21,12 @@ position = Vector2( 656.195, 1380.27 )
 [node name="Walls" parent="." instance=ExtResource( 3 )]
 position = Vector2( 177.989, 1189.8 )
 expand_level = 10
+
+[node name="ItemSpawner" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="LeftBound" type="Node2D" parent="ItemSpawner"]
+position = Vector2( 166.124, 13.4695 )
+
+[node name="RightBound" type="Node2D" parent="ItemSpawner"]
+position = Vector2( 1068.58, 8.97968 )
