@@ -11,7 +11,6 @@ bounce = 0.8
 extents = Vector2( 111.248, 117.591 )
 
 [node name="Toast" type="RigidBody2D"]
-mode = 3
 mass = 8.6
 physics_material_override = SubResource( 1 )
 gravity_scale = 25.0

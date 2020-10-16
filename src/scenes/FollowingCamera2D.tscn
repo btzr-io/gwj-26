@@ -5,6 +5,7 @@
 
 [node name="FollowingCamera2D" type="Camera2D"]
 position = Vector2( 0, 960 )
+rotating = true
 current = true
 limit_left = 0
 limit_top = -10000
@@ -16,13 +17,10 @@ drag_margin_bottom = 0.5
 editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource( 1 )
-min_zoom = 1.0
-max_zoom = 1.0
-zoom_speed = 10.0
 move_speed = 1.0
-DEBUG = true
 
 [node name="Collision_bounds" parent="." instance=ExtResource( 3 )]
+visible = true
 position = Vector2( 0, -960 )
 
 [node name="Origin" type="Position2D" parent="."]

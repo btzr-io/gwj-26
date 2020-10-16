@@ -7,6 +7,7 @@ extents = Vector2( 82.5, 960 )
 extents = Vector2( 82.5, 960 )
 
 [node name="Bounds" type="Node2D"]
+visible = false
 
 [node name="Collisions" type="StaticBody2D" parent="."]
 

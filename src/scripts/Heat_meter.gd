@@ -36,5 +36,3 @@ func start():
 func stop():
 	$Animator.stop()
 	state = "stop"
-	print_debug(progress)
-	print_debug(level)
