@@ -12,6 +12,7 @@ var next_physics_process_position : Vector2 = Vector2()
 var next_physics_process_should_set_position : bool = false
 var horizontal_force : float = 0
 var last_vertical_velocity = 0
+var angular_friction = 0.1
 
 var combo_count = 0
 
@@ -75,6 +76,7 @@ func _integrate_forces(state):
 		next_physics_process_should_set_position = false
 		state.transform.origin = next_physics_process_position
 	state.linear_velocity.x += horizontal_force
+	state.angular_velocity += horizontal_force * state.get_step() * angular_friction
 	horizontal_force = 0
 	#state.linear_velocity.y = clamp(state.linear_velocity.y, -2700, 2700)
 
