@@ -11,6 +11,8 @@ export(int) var expand_level setget set_expand_level
 func expand_walls(level):
 	$Background/ColorRect.rect_size.y += 1920  * level
 	$Background/ColorRect.rect_position.y -= 1920 * level
+	$Color/ColorRect.rect_size.y += 1920  * level
+	$Color/ColorRect.rect_position.y -= 1920 * level
 	for layer in layers:
 		# Left side
 		var wall_left_path = "Left" + "/" + layer + "/Wall"

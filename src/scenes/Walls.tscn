@@ -28,11 +28,12 @@ __meta__ = {
 layer = -2
 
 [node name="Back" type="ParallaxLayer" parent="Left"]
-modulate = Color( 1, 1, 1, 0.392157 )
+modulate = Color( 1, 1, 1, 0.490196 )
 motion_scale = Vector2( 1, 0.3 )
 motion_mirroring = Vector2( 0.5, 0 )
 
 [node name="Wall" type="Sprite" parent="Left/Back"]
+modulate = Color( 1, 1, 1, 0.392157 )
 position = Vector2( 82, 960 )
 z_as_relative = false
 texture = ExtResource( 1 )
@@ -40,8 +41,8 @@ region_enabled = true
 region_rect = Rect2( 330, 0, 164, 1920 )
 
 [node name="Middle" type="ParallaxLayer" parent="Left"]
-modulate = Color( 1, 1, 1, 0.784314 )
-motion_scale = Vector2( 1, 0.4 )
+modulate = Color( 1, 1, 1, 0.313726 )
+motion_scale = Vector2( 1, 0.5 )
 motion_mirroring = Vector2( 0.5, 0 )
 
 [node name="Wall" type="Sprite" parent="Left/Middle"]
@@ -51,6 +52,7 @@ region_enabled = true
 region_rect = Rect2( 165, 0, 164, 1920 )
 
 [node name="Front" type="ParallaxLayer" parent="Left"]
+modulate = Color( 1, 1, 1, 0.294118 )
 motion_scale = Vector2( 1, 0.8 )
 motion_mirroring = Vector2( 0.5, 0 )
 
@@ -70,11 +72,12 @@ scale = Vector2( 1, -1 )
 transform = Transform2D( -1, 0, 0, 1, 1280, 0 )
 
 [node name="Back" type="ParallaxLayer" parent="Right"]
-modulate = Color( 1, 1, 1, 0.392157 )
-motion_scale = Vector2( 1, 0.35 )
-motion_mirroring = Vector2( 1, 0 )
+modulate = Color( 1, 1, 1, 0.490196 )
+motion_scale = Vector2( 1, 0.3 )
+motion_mirroring = Vector2( 0.5, 0 )
 
 [node name="Wall" type="Sprite" parent="Right/Back"]
+modulate = Color( 1, 1, 1, 0.392157 )
 position = Vector2( 82, 960 )
 z_as_relative = false
 texture = ExtResource( 1 )
@@ -82,9 +85,9 @@ region_enabled = true
 region_rect = Rect2( 330, 0, 164, 1920 )
 
 [node name="Middle" type="ParallaxLayer" parent="Right"]
-modulate = Color( 1, 1, 1, 0.784314 )
-motion_scale = Vector2( 1, 0.62 )
-motion_mirroring = Vector2( 1, 0 )
+modulate = Color( 1, 1, 1, 0.313726 )
+motion_scale = Vector2( 1, 0.5 )
+motion_mirroring = Vector2( 0.5, 0 )
 
 [node name="Wall" type="Sprite" parent="Right/Middle"]
 position = Vector2( 82, 960 )
@@ -93,7 +96,9 @@ region_enabled = true
 region_rect = Rect2( 165, 0, 164, 1920 )
 
 [node name="Front" type="ParallaxLayer" parent="Right"]
-motion_mirroring = Vector2( 1, 0 )
+modulate = Color( 1, 1, 1, 0.294118 )
+motion_scale = Vector2( 1, 0.8 )
+motion_mirroring = Vector2( 0.5, 0 )
 
 [node name="Wall" type="Sprite" parent="Right/Front"]
 position = Vector2( 82, 960 )
