@@ -7,6 +7,10 @@ var max_score = 0
 var last_score = 0
 var combo_count = 0
 
+var player_name
+
+var game_over = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
