@@ -25,6 +25,7 @@ func _ready():
 
 func handle_screen_exit():
 	print_debug("Game over!");
+	GM.game_over = true
 
 func handle_falling():
 	$Score_limit.visible = true

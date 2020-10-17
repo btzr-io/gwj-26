@@ -18,3 +18,6 @@ func format_score(n):
 func _process(delta):
 	$Score.text = format_score(GM.score)
 	$Combo.text = str(GM.combo_count,"x")
+	
+	if GM.game_over == true:
+		$GameOver.popup()
