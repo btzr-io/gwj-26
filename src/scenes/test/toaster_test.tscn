@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/toaster/Toaster.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/FollowingCamera2D.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/audio/collect_butter.wav" type="AudioStream" id=7]
 [ext_resource path="res://scripts/SoundManager.gd" type="Script" id=8]
 [ext_resource path="res://assets/audio/collect_jam.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/audio/wholesome_music.ogg" type="AudioStream" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -53,6 +54,11 @@ volume_db = -4.039
 [node name="JamCollectedSound" type="AudioStreamPlayer" parent="SoundManager"]
 stream = ExtResource( 9 )
 volume_db = -4.039
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="SoundManager"]
+stream = ExtResource( 10 )
+volume_db = -6.058
+autoplay = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource( 6 )
