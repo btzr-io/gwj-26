@@ -42,8 +42,7 @@ func update_score():
 	GM.combo_count = combo_count
 
 func _process(delta):
-	if !falling:
-		update_score()
+	update_score()
 
 func _physics_process(delta):
 	var horizontal_steering : float = 0
