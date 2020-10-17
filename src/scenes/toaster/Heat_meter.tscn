@@ -160,8 +160,8 @@ tracks/5/keys = {
 }
 
 [node name="Heat_meter" type="Node2D"]
-position = Vector2( 0, -300 )
-scale = Vector2( 0.8, 0.8 )
+modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 5 )
 
 [node name="Debug_data" type="Label" parent="."]
@@ -186,7 +186,7 @@ __meta__ = {
 margin_left = -380.0
 margin_top = -376.0
 margin_right = 380.0
-margin_bottom = 22.0
+margin_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_clip_content = true

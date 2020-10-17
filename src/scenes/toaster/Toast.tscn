@@ -39,6 +39,7 @@ z_index = -1
 z_as_relative = false
 
 [node name="dash_line" type="Sprite" parent="Max_score"]
+modulate = Color( 1, 1, 1, 0.588235 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
 region_enabled = true
