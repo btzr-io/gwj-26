@@ -25,7 +25,7 @@ func handle_falling():
 	var score = global_position.distance_to($Origin.global_position)
 	# Check for max score
 	if score > GM.max_score:
-		GM.max_score = stepify(score / 100, 0.1)
+		GM.max_score = stepify(score / 1000, 0.1)
 		$Max_score.visible = true
 		$Max_score.global_position.y = global_position.y
 	else:
@@ -38,7 +38,8 @@ func handle_falling():
 func update_score():
 	# Update score
 	var score = global_position.distance_to($Origin.global_position)
-	GM.score = stepify(score / 100, 0.1)
+	var new_score =  lerp(GM.score, stepify(score / 1000, 0.1), 0.25)
+	GM.score = stepify(new_score, 0.1)
 
 func _process(delta):
 	if !falling:
