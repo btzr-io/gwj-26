@@ -78,7 +78,6 @@ func _integrate_forces(state):
 	state.linear_velocity.x += horizontal_force
 	state.angular_velocity += horizontal_force * state.get_step() * angular_friction
 	horizontal_force = 0
-	#state.linear_velocity.y = clamp(state.linear_velocity.y, -2700, 2700)
 
 func set_physics_position(pos : Vector2):
 	next_physics_process_position = pos
