@@ -38,7 +38,6 @@ func update_score():
 	var score = global_position.distance_to($Origin.global_position)
 	var new_score =  lerp(GM.score, stepify(score / 1000, 0.1), 0.25)
 	GM.score = stepify(new_score, 0.1)
-	
 	GM.combo_count = combo_count
 
 func _process(delta):
