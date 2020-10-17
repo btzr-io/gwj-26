@@ -1,18 +1,41 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+const COLORS = [
+	# Green
+	"#16a085",
+	# Dark green,
+	"#218c74",
+	# Red
+	"#c44569",
+	# Aqua
+	"#1289A7",
+	# Blue
+	"#2980b9",
+	# Dark bluem
+	"#227093",
+	# Purple
+	"#574b90",
+	# Dark purple
+	"#40407a",
+	# Orange
+	"#e17055",
+	# Pink
+	"#e84393",
+	# Yellow,
+	"#fdcb6e",
+]
 
 var layers = ["Front", "Back", "Middle"]
 export(int) var expand_level setget set_expand_level
 
 func expand_walls(level):
+	randomize()
 	$Background/ColorRect.rect_size.y += 1920  * level
 	$Background/ColorRect.rect_position.y -= 1920 * level
-	$Color/ColorRect.rect_size.y += 1920  * level
-	$Color/ColorRect.rect_position.y -= 1920 * level
+	$ColorRect.rect_size.y += 1920  * level
+	$ColorRect.rect_position.y -= 1920 * level
+	$ColorRect.color = Color(COLORS[randi() % COLORS.size()])
+	
 	for layer in layers:
 		# Left side
 		var wall_left_path = "Left" + "/" + layer + "/Wall"

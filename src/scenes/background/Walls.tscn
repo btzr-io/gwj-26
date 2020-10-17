@@ -19,16 +19,18 @@ show_behind_parent = true
 margin_right = 1280.0
 margin_bottom = 1920.0
 mouse_filter = 2
-color = Color( 0.619608, 0.619608, 0.619608, 1 )
+color = Color( 0.866667, 0.866667, 0.866667, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Left" type="ParallaxBackground" parent="."]
 layer = -2
+offset = Vector2( -10, 0 )
+transform = Transform2D( 1, 0, 0, 1, -10, 0 )
 
 [node name="Back" type="ParallaxLayer" parent="Left"]
-modulate = Color( 1, 1, 1, 0.490196 )
+modulate = Color( 1, 1, 1, 0.25098 )
 motion_scale = Vector2( 1, 0.3 )
 motion_mirroring = Vector2( 0.5, 0 )
 
@@ -66,13 +68,13 @@ region_rect = Rect2( 0, 0, 164, 1920 )
 
 [node name="Right" type="ParallaxBackground" parent="."]
 layer = -2
-offset = Vector2( 1280, 0 )
+offset = Vector2( 1290, 0 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
-transform = Transform2D( -1, 0, 0, 1, 1280, 0 )
+transform = Transform2D( -1, 0, 0, 1, 1290, 0 )
 
 [node name="Back" type="ParallaxLayer" parent="Right"]
-modulate = Color( 1, 1, 1, 0.490196 )
+modulate = Color( 1, 1, 1, 0.25098 )
 motion_scale = Vector2( 1, 0.3 )
 motion_mirroring = Vector2( 0.5, 0 )
 
@@ -112,11 +114,11 @@ region_rect = Rect2( 0, 0, 164, 1920 )
 layer = -1
 
 [node name="Fade" type="ParallaxLayer" parent="Fade_bottom"]
+modulate = Color( 0.866667, 0.866667, 0.866667, 1 )
 motion_scale = Vector2( 1, 0.25 )
 motion_offset = Vector2( 0, -700 )
 
 [node name="ColorRect2" type="ColorRect" parent="Fade_bottom/Fade"]
-modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
 margin_top = 1620.0
 margin_right = 1280.0
 margin_bottom = 1920.0
@@ -138,16 +140,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Color" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="ColorRect" type="ColorRect" parent="Color"]
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 0.780392, 0.780392, 0.780392, 1 )
 show_behind_parent = true
 material = SubResource( 1 )
 margin_right = 1280.0
 margin_bottom = 1920.0
 mouse_filter = 2
-color = Color( 0.305882, 0.870588, 1, 1 )
+color = Color( 0.235294, 0.388235, 0.509804, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
