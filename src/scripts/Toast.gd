@@ -18,9 +18,12 @@ func _ready():
 	$Origin.set_as_toplevel(true)
 	$Marker.set_as_toplevel(true)
 	$Max_score.set_as_toplevel(true)
-	# $VisibilityEnabler2D.connect("screen_exited", self, "handle_screen_exit")
+	$VisibilityEnabler2D.connect("screen_exited", self, "handle_screen_exit")
 	connect("start_falling", self, "handle_falling")
-	
+
+func handle_screen_exit():
+	print_debug("Game over!");
+
 func handle_falling():
 	var score = global_position.distance_to($Origin.global_position)
 	# Check for max score
