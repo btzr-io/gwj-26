@@ -19,8 +19,7 @@ var combo_count = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Origin.set_as_toplevel(true)
-	$Marker.set_as_toplevel(true)
-	$Max_score.set_as_toplevel(true)
+	$Score_limit.set_as_toplevel(true)
 	$VisibilityEnabler2D.connect("screen_exited", self, "handle_screen_exit")
 	connect("start_falling", self, "handle_falling")
 
@@ -28,17 +27,10 @@ func handle_screen_exit():
 	print_debug("Game over!");
 
 func handle_falling():
-	var score = global_position.distance_to($Origin.global_position)
-	# Check for max score
-	if score > GM.max_score:
-		GM.max_score = stepify(score / 1000, 0.1)
-		$Max_score.visible = true
-		$Max_score.global_position.y = global_position.y
-	else:
-		# Show last score
-		$Marker.visible = true
-		$Marker.global_position.y = global_position.y
-		# print_debug("falling!! " + str(score / 100, "ft"))
+	$Score_limit.visible = true
+	$Score_limit.get_node("Line/Label").text = str(GM.score) + " M"
+	$Score_limit.get_node("AnimationPlayer").play("show")
+	$Score_limit.global_position.y = global_position.y
 
 func update_score():
 	# Update score
