@@ -5,6 +5,7 @@ extends Node
 var score = 0
 var max_score = 0
 var last_score = 0
+var combo_count = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

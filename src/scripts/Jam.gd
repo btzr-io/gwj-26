@@ -7,7 +7,8 @@ func _on_Area2D_body_entered(_body: RigidBody2D):
 	#update speed here
 	if _body && _body.name == "Toast":
 		#_body.linear_velocity.y = _body.linear_velocity.y * 0.75
-		_body.set_friction(0.5)
+		_body.set_friction(0.7)
+		_body.combo_count = 0
 	queue_free()
 
 func _ready():

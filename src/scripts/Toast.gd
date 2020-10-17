@@ -13,6 +13,8 @@ var next_physics_process_should_set_position : bool = false
 var horizontal_force : float = 0
 var last_vertical_velocity = 0
 
+var combo_count = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Origin.set_as_toplevel(true)
@@ -37,12 +39,13 @@ func handle_falling():
 		$Marker.global_position.y = global_position.y
 		# print_debug("falling!! " + str(score / 100, "ft"))
 
-
 func update_score():
 	# Update score
 	var score = global_position.distance_to($Origin.global_position)
 	var new_score =  lerp(GM.score, stepify(score / 1000, 0.1), 0.25)
 	GM.score = stepify(new_score, 0.1)
+	
+	GM.combo_count = combo_count
 
 func _process(delta):
 	if !falling:
@@ -67,14 +70,13 @@ func _physics_process(delta):
 			falling = true
 	last_vertical_velocity = linear_velocity.y
 
-
 func _integrate_forces(state):
 	if next_physics_process_should_set_position:
 		next_physics_process_should_set_position = false
 		state.transform.origin = next_physics_process_position
 	state.linear_velocity.x += horizontal_force
 	horizontal_force = 0
-	state.linear_velocity.y = clamp(state.linear_velocity.y, -2700, 2700)
+	#state.linear_velocity.y = clamp(state.linear_velocity.y, -2700, 2700)
 
 func set_physics_position(pos : Vector2):
 	next_physics_process_position = pos
