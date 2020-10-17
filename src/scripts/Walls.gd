@@ -25,8 +25,22 @@ const COLORS = [
 	"#fdcb6e",
 ]
 
+
+
 var layers = ["Front", "Back", "Middle"]
 export(int) var expand_level setget set_expand_level
+
+var noise : OpenSimplexNoise
+onready var cam = $"../FollowingCamera2D"
+var color_start_index : int = 0
+
+func init_noise(noise_seed : int):
+	noise = OpenSimplexNoise.new()
+	noise.seed = noise_seed
+	noise.octaves = 2
+	noise.period = 20.0
+	noise.persistence = 0.3
+
 
 func expand_walls(level):
 	randomize()
@@ -34,7 +48,10 @@ func expand_walls(level):
 	$Background/ColorRect.rect_position.y -= 1920 * level
 	$ColorRect.rect_size.y += 1920  * level
 	$ColorRect.rect_position.y -= 1920 * level
-	$ColorRect.color = Color(COLORS[randi() % COLORS.size()])
+	#$ColorRect.color = Color(COLORS[randi() % COLORS.size()])
+	color_start_index = randi() % COLORS.size()
+	
+	init_noise(randi())
 	
 	for layer in layers:
 		# Left side
@@ -63,3 +80,25 @@ func expand_walls(level):
 func set_expand_level(level):
    expand_level = level
    expand_walls(level)
+
+func get_bg_color_for_ypos(ypos : float)->Color:
+	#var r = noise.get_noise_2d(ypos*0.0005,0)
+	#r = Util.map_valuef(r,-1,1,0.1,1)
+	#var g = noise.get_noise_2d(ypos*0.0005,3)
+	#g = Util.map_valuef(g,-1,1,0.1,1)
+	#var b = noise.get_noise_2d(ypos*0.0005,7)
+	#b = Util.map_valuef(b,-1,1,0.1,1)
+	#return Color(r,g,b)
+	
+	#Fade between the defined colors
+	var f : float = ypos*0.0001-2-color_start_index
+	var weight = wrapf(f, 0, 1)
+	var to_index : int = int(f) % COLORS.size()
+	var from_index : int = (int(f)-1) % COLORS.size()
+	return lerp(Color(COLORS[from_index]), Color(COLORS[to_index]), weight)
+	
+func update_bg_color():
+	$ColorRect.color = get_bg_color_for_ypos(cam.position.y)
+	
+func _process(delta):
+	update_bg_color()
