@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var cam : Camera2D = $"../".cam
+onready var sound_manager = $"../../SoundManager"
 var bottom_destroy_height : float = 0
 
 func _on_Area2D_body_entered(_body: RigidBody2D):
@@ -8,6 +9,7 @@ func _on_Area2D_body_entered(_body: RigidBody2D):
 	if _body && _body.name == "Toast":
 		_body.linear_velocity.y = -3000
 		_body.combo_count = _body.combo_count + 1
+		sound_manager.butter_collected()
 		#print_debug(_body.combo_count)
 		
 	
