@@ -29,7 +29,7 @@ func handle_falling():
 		# Show last score
 		$Marker.visible = true
 		$Marker.global_position.y = global_position.y
-		print_debug("falling!! " + str(score / 100, "ft"))
+		# print_debug("falling!! " + str(score / 100, "ft"))
 	# Update score
 	GM.score = score
 
@@ -58,6 +58,7 @@ func _integrate_forces(state):
 		state.transform.origin = next_physics_process_position
 	state.linear_velocity.x += horizontal_force
 	horizontal_force = 0
+	state.linear_velocity.y = clamp(state.linear_velocity.y, -2500, 2500)
 
 func set_physics_position(pos : Vector2):
 	next_physics_process_position = pos

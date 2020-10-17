@@ -1,7 +1,9 @@
 extends Camera2D
 export var move_speed : float = 0.05
 var following_node : Node2D = null
-var last_follow_position : Vector2 = Vector2()
+var smooth_speed = 0
+var last_follow_position = Vector2.ZERO
+
 
 # SHAKE
 var noise_y = 0
@@ -33,18 +35,25 @@ func _process(delta):
 	
 	if following_node == null:
 		return
-	
-	last_follow_position = following_node.global_position
+		
+
 	
 	#Movement
-	var distance = $Origin.global_position.distance_to(following_node.global_position)
-	var distance_modifier = abs(distance) / 150
-	# Increase speed if object is too far
-	var smooth_speed = move_speed * distance_modifier 
-	var new_position = lerp(global_position.y, following_node.global_position.y, smooth_speed * delta)
+	var distance = $Origin.global_position.distance_squared_to(last_follow_position)
+	var distance_modifier = clamp( abs(distance) / 200.0, 0.0, 2.5)
+	var direction_down = last_follow_position.y >= global_position.y
+	var new_position = global_position.y
+	# Falling
+	if direction_down:
+		smooth_speed = lerp(smooth_speed, 0.0, 5  * delta)
+	else:
+		# Increase speed if object is too far
+		smooth_speed = clamp(move_speed * pow(distance_modifier, distance_modifier) * delta, 0.0, 1.0)
+	new_position = lerp(global_position.y, following_node.global_position.y, smooth_speed)
 	# Clamp camera position to limits
 	global_position.y = clamp(new_position, -INF, 960)
-
+	# Last positions
+	last_follow_position = following_node.global_position
 
 func set_following_node(node : Node2D):
 	following_node = node

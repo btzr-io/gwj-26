@@ -12,16 +12,15 @@ limit_top = -1000000
 limit_right = 1280
 limit_bottom = 1920
 limit_smoothed = true
-drag_margin_top = 0.5
-drag_margin_bottom = 0.5
+drag_margin_top = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource( 1 )
-move_speed = 1.0
+move_speed = 0.75
 
 [node name="Collision_bounds" parent="." instance=ExtResource( 3 )]
 visible = true
 position = Vector2( 0, -960 )
 
 [node name="Origin" type="Position2D" parent="."]
-position = Vector2( 640, 0 )
+position = Vector2( 640, 240 )
