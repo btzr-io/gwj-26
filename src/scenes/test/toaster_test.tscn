@@ -19,13 +19,12 @@ font_data = ExtResource( 5 )
 drag_margin_bottom = 1.0
 move_speed = 3.0
 
-[node name="Walls" parent="FollowingCamera2D" instance=ExtResource( 3 )]
-position = Vector2( 0, -960 )
+[node name="Walls" parent="." instance=ExtResource( 3 )]
 z_index = -2
 expand_level = 5
 
 [node name="Toaster" parent="." instance=ExtResource( 1 )]
-position = Vector2( 640, 1480 )
+position = Vector2( 640, 1440 )
 
 [node name="ItemSpawner" parent="." instance=ExtResource( 4 )]
 
@@ -33,13 +32,14 @@ position = Vector2( 640, 1480 )
 script = ExtResource( 6 )
 
 [node name="Score" type="Label" parent="HUD"]
-margin_left = 525.615
+margin_left = 440.0
 margin_top = 1768.4
-margin_right = 836.615
+margin_right = 840.0
 margin_bottom = 1860.4
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "1.2 M"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
