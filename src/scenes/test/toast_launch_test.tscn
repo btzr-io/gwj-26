@@ -6,7 +6,6 @@
 [ext_resource path="res://scenes/ItemSpawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/background/Walls.tscn" type="PackedScene" id=5]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 753.547, 176.153 )
 
@@ -61,7 +60,6 @@ launch_speed = 4000.0
 toasting_degree = 0.855
 
 [node name="FollowingCamera2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, 960 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 629.121, 2081.65 )

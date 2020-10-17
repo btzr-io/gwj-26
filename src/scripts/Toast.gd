@@ -12,7 +12,7 @@ var next_physics_process_position : Vector2 = Vector2()
 var next_physics_process_should_set_position : bool = false
 var horizontal_force : float = 0
 var last_vertical_velocity = 0
-var angular_friction = 0.1
+var angular_friction = 0.2
 
 var combo_count = 0
 
