@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/fonts/miglia/Miglia.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/miglia/MigliaFur.ttf" type="DynamicFontData" id=2]
@@ -74,15 +74,6 @@ outline_color = Color( 0, 0, 0, 0.196078 )
 use_filter = true
 extra_spacing_top = 10
 font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=6]
-size = 50
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=7]
-size = 80
-use_filter = true
-font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=8]
 resource_name = "show"
@@ -207,6 +198,7 @@ custom_styles/hover = SubResource( 10 )
 custom_styles/normal = SubResource( 9 )
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+disabled = true
 text = "Submit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -237,53 +229,6 @@ text = "NEW SCORE!"
 align = 1
 valign = 1
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NeedName" type="Popup" parent="."]
-margin_left = 96.1665
-margin_top = 560.029
-margin_right = 1168.17
-margin_bottom = 1095.03
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NeedName"]
-margin_top = -14.0
-margin_right = 1077.0
-margin_bottom = 542.0
-color = Color( 0.188235, 0.156863, 0.156863, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NeedInfo" type="Label" parent="NeedName/ColorRect"]
-margin_left = 266.113
-margin_top = 76.4558
-margin_right = 804.113
-margin_bottom = 226.456
-custom_fonts/font = SubResource( 6 )
-custom_colors/font_color = Color( 0.815686, 0.807843, 0.678431, 1 )
-text = "Please enter a name before hitting Submit. "
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="NeedName/ColorRect"]
-margin_left = 381.495
-margin_top = 328.098
-margin_right = 707.495
-margin_bottom = 436.098
-custom_fonts/font = SubResource( 7 )
-custom_colors/font_color = Color( 0.811765, 0.698039, 0.176471, 1 )
-custom_colors/font_color_hover = Color( 0.729412, 0.223529, 0.0901961, 1 )
-custom_colors/font_color_pressed = Color( 0.270588, 0.290196, 0.796078, 1 )
-text = "Accept"
 __meta__ = {
 "_edit_use_anchors_": false
 }
