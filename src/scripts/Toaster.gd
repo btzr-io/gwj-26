@@ -36,6 +36,7 @@ func handle_active_update(active_state):
 		$Animator.play("launch_hold")
 	# Launch toast !
 	elif !$Lever.clicked:
+		$"../SoundManager/ToasterSound".play()
 		$Heat_meter.stop()
 		$Animator.play("launch_release")
 		yield(get_tree().create_timer(0.3), "timeout")

@@ -37,8 +37,8 @@ func _process(delta):
 	if GM.game_over == true && !$GameOver.visible:
 		$GameOver.show_screen()
 
-	if Input.is_action_pressed("ui_cancel"):
-		get_tree().quit()
+	#if Input.is_action_pressed("ui_cancel"):
+	#	get_tree().quit()
 
 	# Prevent empty submit
 	if $GameOver/User_form/EnterName.text.empty() && !$GameOver/User_form/Submit.disabled:
