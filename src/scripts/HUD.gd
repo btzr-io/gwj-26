@@ -21,3 +21,9 @@ func _process(delta):
 	
 	if GM.game_over == true:
 		$GameOver.popup()
+		
+	if Input.action_press("ui_cancel"):
+		get_tree().quit()
+
+func _on_Submit_pressed():
+	get_tree().quit()

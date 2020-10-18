@@ -24,7 +24,10 @@ func _ready():
 	connect("start_falling", self, "handle_falling")
 
 func handle_screen_exit():
+	SilentWolf.Scores.persist_score(GM.player_name, GM.score)
 	print_debug("Game over!");
+	yield(SilentWolf.Scores.get_high_scores(), "sw_scores_received") 
+	print("Scores: " + str(SilentWolf.Scores.scores))
 	GM.game_over = true
 
 func handle_falling():

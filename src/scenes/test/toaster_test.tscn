@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/toaster/Toaster.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/FollowingCamera2D.tscn" type="PackedScene" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://assets/audio/collect_butter.wav" type="AudioStream" id=7]
 [ext_resource path="res://scripts/SoundManager.gd" type="Script" id=8]
 [ext_resource path="res://assets/audio/collect_jam.wav" type="AudioStream" id=9]
-[ext_resource path="res://assets/audio/wholesome_music.ogg" type="AudioStream" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -23,9 +22,23 @@ outline_color = Color( 1, 1, 1, 0 )
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
+size = 100
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 75
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=5]
 size = 200
 outline_size = 2
 outline_color = Color( 0.243137, 0.137255, 0.137255, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 80
 use_filter = true
 font_data = ExtResource( 5 )
 
@@ -49,16 +62,11 @@ script = ExtResource( 8 )
 
 [node name="ButterCollectedSound" type="AudioStreamPlayer" parent="SoundManager"]
 stream = ExtResource( 7 )
-volume_db = -4.039
+volume_db = -20.289
 
 [node name="JamCollectedSound" type="AudioStreamPlayer" parent="SoundManager"]
 stream = ExtResource( 9 )
-volume_db = -4.039
-
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="SoundManager"]
-stream = ExtResource( 10 )
-volume_db = -6.058
-autoplay = true
+volume_db = -24.352
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource( 6 )
@@ -90,26 +98,53 @@ __meta__ = {
 
 [node name="GameOver" type="Popup" parent="HUD"]
 visible = true
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 1281.0
+margin_bottom = 1923.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect" type="ColorRect" parent="HUD/GameOver"]
-margin_right = 1282.0
-margin_bottom = 1916.0
-color = Color( 0, 0, 0, 0.533333 )
+margin_right = 1274.0
+margin_bottom = 1930.0
+color = Color( 0.196078, 0.176471, 0.176471, 0.866667 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="HUD/GameOver/ColorRect"]
-margin_left = 11.3264
-margin_top = 727.732
-margin_right = 1289.33
-margin_bottom = 1086.73
+[node name="EnterName" type="LineEdit" parent="HUD/GameOver/ColorRect"]
+margin_left = 193.634
+margin_top = 996.177
+margin_right = 1102.63
+margin_bottom = 1139.18
 custom_fonts/font = SubResource( 3 )
+custom_colors/selection_color = Color( 0, 0, 0, 0.611765 )
+custom_colors/cursor_color = Color( 0.917647, 0.886275, 0.886275, 1 )
+custom_colors/font_color = Color( 0.92549, 0.882353, 0.882353, 0.823529 )
+text = "Enter Name"
+align = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Submit" type="Button" parent="HUD/GameOver/ColorRect"]
+margin_left = 501.174
+margin_top = 1215.98
+margin_right = 782.174
+margin_bottom = 1333.98
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.878431, 0.803922, 0.576471, 1 )
+text = "Submit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GG" type="Label" parent="HUD/GameOver/ColorRect"]
+margin_left = 7.96277
+margin_top = 99.0137
+margin_right = 1285.97
+margin_bottom = 458.012
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.737255, 0.207843, 0.207843, 1 )
 text = "GAME OVER"
 align = 1
@@ -117,3 +152,21 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Message" type="Label" parent="HUD/GameOver/ColorRect"]
+margin_left = 0.363525
+margin_top = 433.91
+margin_right = 1278.36
+margin_bottom = 952.91
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.870588, 0.85098, 0.729412, 1 )
+text = "NEW HIGH SCORE!
+
+Enter your name below for our leaderboard."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="HUD/GameOver/ColorRect/Submit" to="HUD" method="_on_Submit_pressed"]
