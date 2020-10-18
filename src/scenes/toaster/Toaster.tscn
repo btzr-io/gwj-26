@@ -207,12 +207,12 @@ script = ExtResource( 2 )
 
 [node name="Lever" parent="." instance=ExtResource( 1 )]
 modulate = Color( 1, 0.498039, 0.498039, 1 )
-position = Vector2( -260, 93 )
+position = Vector2( -260, 25 )
 debug_mode = false
 
 [node name="Shadow" type="Sprite" parent="."]
 position = Vector2( 0, 220 )
-scale = Vector2( 1.15, 1 )
+scale = Vector2( 0.95, 1 )
 texture = ExtResource( 8 )
 
 [node name="Base" type="Sprite" parent="."]
@@ -220,8 +220,7 @@ position = Vector2( 0, 195 )
 texture = ExtResource( 5 )
 
 [node name="Box" type="Sprite" parent="."]
-position = Vector2( 0, 62 )
-scale = Vector2( 1, 0.82 )
+position = Vector2( 0, -10 )
 texture = ExtResource( 4 )
 
 [node name="Mask" type="Sprite" parent="Box"]
