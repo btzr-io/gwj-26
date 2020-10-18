@@ -18,6 +18,7 @@ var combo_count = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Focus.set_as_toplevel(true)
 	$Origin.set_as_toplevel(true)
 	$Score_limit.set_as_toplevel(true)
 	$VisibilityEnabler2D.connect("screen_exited", self, "handle_screen_exit")
@@ -43,6 +44,7 @@ func update_score():
 
 func _process(delta):
 	update_score()
+	$Focus.global_position.y = global_position.y 
 
 func _physics_process(delta):
 	var horizontal_steering : float = 0
@@ -83,4 +85,4 @@ func launch(upspeed : float, toasting_degree):
 	emit_signal("start_rising")
 	var cam = $"../FollowingCamera2D"
 	if cam:
-		cam.set_following_node($Focus_offset)
+		cam.set_following_node($Focus/Focus_offset)

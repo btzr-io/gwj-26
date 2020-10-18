@@ -49,10 +49,12 @@ physics_material_override = SubResource( 1 )
 gravity_scale = 25.0
 script = ExtResource( 1 )
 
-[node name="Origin" type="Position2D" parent="."]
+[node name="Focus" type="Position2D" parent="."]
 
-[node name="Focus_offset" type="Position2D" parent="."]
-position = Vector2( 0, -325 )
+[node name="Focus_offset" type="Position2D" parent="Focus"]
+position = Vector2( 0, -280 )
+
+[node name="Origin" type="Position2D" parent="."]
 
 [node name="Score_limit" type="Position2D" parent="."]
 show_behind_parent = true
