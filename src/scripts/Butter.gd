@@ -16,10 +16,11 @@ func _on_Area2D_body_entered(_body: RigidBody2D):
 		_body.linear_velocity.y = -3000
 		_body.combo_count = _body.combo_count + 1
 		sound_manager.butter_collected()
-		#print_debug(_body.combo_count)
-		
-	
-	queue_free()
+		$Area2D.queue_free()
+		# Particle effects
+		$Particles.emitting = true
+		yield(get_tree().create_timer(0.2), "timeout")
+		$Particles.emitting = false
 
 
 const MAX_ROT = 45.0
