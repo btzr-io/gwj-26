@@ -78,7 +78,7 @@ func set_physics_position(pos : Vector2):
 func launch(upspeed : float, toasting_degree):
 	var cam = $"../FollowingCamera2D"
 	if cam:
-		cam.set_following_node(self)
+		cam.set_following_node($Focus_offset)
 	mode=RigidBody2D.MODE_RIGID
 	linear_velocity = Vector2(0, -upspeed)
 	toasting_degree = clamp(toasting_degree, 0, 1)

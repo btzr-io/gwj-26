@@ -1,8 +1,8 @@
 extends Node2D
 
 const TOAST = preload("res://scenes/toaster/Toast.tscn")
-const MIN_LAUNCH_SPEED = 1000
-const MAX_LAUNCH_SPEED = 4000
+const MIN_LAUNCH_SPEED = 1250
+const MAX_LAUNCH_SPEED = 5480
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,7 +30,7 @@ func handle_active_update(active_state):
 
 
 func launch_toast():
-	var launch_speed = 1500 + ( $Heat_meter.progress  * $Heat_meter.level * 10 )
+	var launch_speed = 1500 + ( $Heat_meter.progress  * $Heat_meter.level * 25 )
 	launch_speed = clamp(launch_speed, MIN_LAUNCH_SPEED, MAX_LAUNCH_SPEED)
 	print_debug(launch_speed)
 	var toasting_degree = 0.15 * $Heat_meter.level
