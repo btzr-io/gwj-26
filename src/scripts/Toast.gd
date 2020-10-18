@@ -2,6 +2,9 @@ extends RigidBody2D
 
 export var steer_speed : float = 1000
 export var steer_acceleration : float = 4000
+export var horizontal_wall_bounce_speed : float = 1400
+export var max_wall_jumpspeed : float = 3000
+export var seconds_to_reach_max_wall_jumpspeed: float = 5
 
 signal start_rising
 signal start_falling
@@ -14,6 +17,7 @@ var horizontal_force : float = 0
 var vertical_force : float = 0
 var last_vertical_velocity = 0
 var angular_friction = 0.2
+var last_wall_hit_time : float = 0
 
 var combo_count = 0
 
@@ -24,6 +28,7 @@ func _ready():
 	$Score_limit.set_as_toplevel(true)
 	$VisibilityEnabler2D.connect("screen_exited", self, "handle_screen_exit")
 	connect("start_falling", self, "handle_falling")
+	last_wall_hit_time = OS.get_ticks_msec() * 0.001
 
 func handle_screen_exit():
 	yield(get_tree().create_timer(1.25), "timeout")
@@ -94,7 +99,9 @@ func launch(upspeed : float, toasting_degree):
 func _on_Toast_body_entered(body):
 	if body && body is PhysicsBody2D:
 		if body.collision_layer == Util.name_to_mask["walls"]:
-			#print("Toast hits wall")
-			#vertical_force += linear_velocity.y * -2.2
-			#horizontal_force += -linear_velocity.x +(800 if position.x < 500 else -800 )
-			linear_velocity = Vector2(1400 if position.x < 500 else -1400, -800 if linear_velocity.y > -800 else linear_velocity.y)
+			var time_since_last_wall_hit : float = (OS.get_ticks_msec() * 0.001) - last_wall_hit_time
+			var jump_speed : float = Util.map_valuef(time_since_last_wall_hit, 0, seconds_to_reach_max_wall_jumpspeed,
+				0, max_wall_jumpspeed, true) 
+			linear_velocity = Vector2(horizontal_wall_bounce_speed if position.x < 500 else -horizontal_wall_bounce_speed,
+			 -jump_speed if linear_velocity.y > -jump_speed else linear_velocity.y)
+			last_wall_hit_time = OS.get_ticks_msec() * 0.001
