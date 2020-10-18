@@ -35,7 +35,7 @@ func _on_Submit_pressed():
 	print($GameOver/ColorRect/EnterName.get_text())
 	
 	if GM.player_name == check_box:
-		$GameOver/NeedName.popup()
+		$NeedName.popup()
 	if GM.player_name != check_box:
 		#print("PLAYER NAME IS:")
 		#print(GM.player_name)
@@ -48,5 +48,6 @@ func _on_Submit_pressed():
 		#get_tree().reload_current_scene()
 
 func _on_Button_pressed():
-	$GameOver/NeedName.hide()
+	$NeedName.hide()
+	$GameOver.popup()
 		
