@@ -11,6 +11,7 @@ var falling = false
 var next_physics_process_position : Vector2 = Vector2()
 var next_physics_process_should_set_position : bool = false
 var horizontal_force : float = 0
+var vertical_force : float = 0
 var last_vertical_velocity = 0
 var angular_friction = 0.2
 
@@ -70,8 +71,10 @@ func _integrate_forces(state):
 		next_physics_process_should_set_position = false
 		state.transform.origin = next_physics_process_position
 	state.linear_velocity.x += horizontal_force
+	state.linear_velocity.y += vertical_force
 	state.angular_velocity += horizontal_force * state.get_step() * angular_friction
 	horizontal_force = 0
+	vertical_force = 0
 
 func set_physics_position(pos : Vector2):
 	next_physics_process_position = pos
@@ -86,3 +89,12 @@ func launch(upspeed : float, toasting_degree):
 	var cam = $"../FollowingCamera2D"
 	if cam:
 		cam.set_following_node($Focus/Focus_offset)
+
+
+func _on_Toast_body_entered(body):
+	if body && body is PhysicsBody2D:
+		if body.collision_layer == Util.name_to_mask["walls"]:
+			print("Toast hits wall")
+			#vertical_force += linear_velocity.y * -2.2
+			#horizontal_force += -linear_velocity.x +(800 if position.x < 500 else -800 )
+			linear_velocity = Vector2(1400 if position.x < 500 else -1400, -800 if linear_velocity.y > -800 else linear_velocity.y)

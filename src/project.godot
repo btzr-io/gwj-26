@@ -70,6 +70,11 @@ launch={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="default"
+2d_physics/layer_2="walls"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
