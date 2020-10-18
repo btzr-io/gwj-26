@@ -10,6 +10,7 @@ var prev_active = false
 var grabbed_offset = Vector2.ZERO
 var mouse_position = Vector2.ZERO
 var key_active = false
+var progress = 0.0
 
 signal on_active_update(active_state)
 
@@ -77,7 +78,10 @@ func _process(delta):
 	if next_active != prev_active:
 		active = next_active
 		emit_signal("on_active_update", active)
-
+	var total = abs($Limit_bottom.position.y - $Limit_top.position.y)
+	var current = abs( $Handler.position.y -  $Limit_bottom.position.y)
+	progress = stepify(current/ total, 0.1)
+	
 func draw_limit():
 	$Limit_line.show()
 	$Limit_line.points[0] = $Limit_top.position
