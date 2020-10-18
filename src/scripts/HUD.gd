@@ -7,19 +7,18 @@ extends CanvasLayer
 
 const LEADERBOARD = preload("res://addons/silent_wolf/Scores/Leaderboard.tscn")
 
-var check_box = null
+var new_name = null
 var submit_button = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	submit_button = $GameOver/User_form/Submit.connect("button_down", self, "handle_submit")
-	check_box = $GameOver/User_form/EnterName.get_text()
+	$GameOver/User_form/EnterName.text = GM.player_name
 	$GameOver/ButtonRestart.connect("button_down", self, "handle_restart")
 	$GameOver/ButtonLeaderboard.connect("button_down", self, "handle_leaderboard")
 	
 func restart_game():
+	GM.game_over = false	
 	get_tree().reload_current_scene()
-	GM.game_over = false
-	$GameOver.hide()
 
 func _process(delta):
 	$Score.text = Util.format_score(GM.score)
@@ -39,22 +38,23 @@ func _process(delta):
 		
 	if $GameOver.visible && Input.is_action_pressed("ui_accept"):
 		restart_game()		
-
+	
+	# Prevent empty submit
+	if $GameOver/User_form/EnterName.text.empty() && !$GameOver/User_form/Submit.disabled:
+		$GameOver/User_form/Submit.disabled = true
+	elif !$GameOver/User_form/EnterName.text.empty() && $GameOver/User_form/Submit.disabled:
+		$GameOver/User_form/Submit.disabled = false
+	
 func show_scores():
 	yield(SilentWolf.Scores.get_high_scores(), "sw_scores_received") 
 	#print("Scores: " + str(SilentWolf.Scores.scores))
 	var leaderboard = LEADERBOARD.instance()
 	add_child(leaderboard)
-	#get_tree().reload_current_scene()
+	# get_tree().reload_current_scene()
 
 func handle_submit():
-	GM.player_name = $GameOver/User_form/EnterName.get_text()
-	
-	if GM.player_name == check_box:
-		$GameOver/NeedName.popup()
-	if GM.player_name != check_box:
-		#print("PLAYER NAME IS:")
-		#print(GM.player_name)
+	if !$GameOver/User_form/EnterName.text.empty():
+		GM.player_name = $GameOver/User_form/EnterName.text
 		SilentWolf.Scores.persist_score(GM.player_name, GM.last_score)
 		show_scores()
 
