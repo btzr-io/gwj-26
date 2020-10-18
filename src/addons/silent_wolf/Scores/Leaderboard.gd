@@ -1,8 +1,8 @@
 tool
 extends Node2D
 
-const ScoreItem = preload("ScoreItem.tscn")
-const SWLogger = preload("../utils/SWLogger.gd")
+const ScoreItem = preload("res://addons/silent_wolf/Scores/ScoreItem.tscn")
+const SWLogger = preload("res://addons/silent_wolf/utils/SWLogger.gd")
 
 var list_index = 0
 var ld_name = "main"
@@ -26,6 +26,10 @@ func _ready():
 		render_board(SilentWolf.Scores.scores, local_scores)
 
 func render_board(scores, local_scores):
+	$Bg.color =  GM.bg_color
+	$Board/CloseButtonContainer/CloseButton.get_stylebox("hover").bg_color = GM.bg_color
+	$Board/CloseButtonContainer/CloseButton.get_stylebox("normal").bg_color = Color(GM.bg_color).darkened(0.25)
+	$Board/CloseButtonContainer/CloseButton.get_stylebox("pressed").bg_color = Color(GM.bg_color).darkened(0.25)
 	var all_scores = scores
 	if ld_name in SilentWolf.Scores.ldboard_config and is_default_leaderboard(SilentWolf.Scores.ldboard_config[ld_name]):
 		all_scores = merge_scores_with_local_scores(scores, local_scores)
@@ -76,9 +80,15 @@ func add_item(player_name, score):
 	list_index += 1
 	item.get_node("PlayerName").text = str(list_index) + str(". ") + player_name
 	item.get_node("Score").text = score
-	item.margin_top = list_index * 100
 	$"Board/HighScores/ScoreItemContainer".add_child(item)
-
+	
+	item.margin_top = list_index * 100
+	# Odd
+	if ( list_index % 2 )  == 0:
+		item.self_modulate = Color(0.0, 0.0, 0.0, 0.0)
+	else:
+		item.self_modulate = Color(GM.bg_color).lightened(0.5)
+		item.self_modulate.a = 0.25
 func add_no_scores_message():
 	var item = $"Board/MessageContainer/TextMessage"
 	item.text = "No scores yet!"

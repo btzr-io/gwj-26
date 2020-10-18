@@ -1,8 +1,10 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/fonts/miglia/Miglia.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/miglia/MigliaFur.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/screens/GameOver.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=17]
 
 [sub_resource type="StyleBoxFlat" id=14]
 bg_color = Color( 0, 0, 0, 0.313726 )
@@ -47,6 +49,11 @@ corner_radius_top_right = 70
 corner_radius_bottom_right = 70
 corner_radius_bottom_left = 70
 
+[sub_resource type="StyleBoxFlat" id=18]
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+
 [sub_resource type="StyleBoxFlat" id=15]
 bg_color = Color( 0, 0, 0, 0.196078 )
 corner_radius_top_left = 70
@@ -62,7 +69,7 @@ corner_radius_bottom_right = 70
 corner_radius_bottom_left = 70
 corner_detail = 10
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=16]
 size = 75
 extra_spacing_top = 15
 font_data = ExtResource( 1 )
@@ -132,6 +139,7 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_pivot_offset = Vector2( 640, 960 )
 mouse_filter = 2
+custom_styles/panel = SubResource( 17 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -202,9 +210,10 @@ margin_top = 493.678
 margin_right = 785.0
 margin_bottom = 633.678
 custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 18 )
 custom_styles/disabled = SubResource( 15 )
 custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 disabled = true
 text = "Submit"

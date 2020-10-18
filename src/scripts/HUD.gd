@@ -5,7 +5,7 @@ extends CanvasLayer
 # var a = 2
 # var b = "text"
 
-const LEADERBOARD = preload("res://addons/silent_wolf/Scores/Leaderboard.tscn")
+const LEADERBOARD = preload("res://scenes/Screens/Leaderboard.tscn")
 
 var new_name = null
 var submit_button = null

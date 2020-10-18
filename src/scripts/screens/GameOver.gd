@@ -22,5 +22,6 @@ func show_screen():
 	$User_form/EnterName.get_stylebox("focus").border_color = accent_color
 	$User_form/Submit.get_stylebox("hover").bg_color = GM.bg_color
 	$User_form/Submit.get_stylebox("normal").bg_color = Color(GM.bg_color).darkened(0.25)
+	$User_form/Submit.get_stylebox("pressed").bg_color = Color(GM.bg_color).darkened(0.25)
 	$AnimationPlayer.play("show")
 	
