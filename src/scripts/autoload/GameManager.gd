@@ -32,6 +32,7 @@ func _ready():
 		})
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func restart_game():
+	GM.game_over = false
+	GM.state = GM.STATE.MAIN_SCREEN
+	get_tree().reload_current_scene()

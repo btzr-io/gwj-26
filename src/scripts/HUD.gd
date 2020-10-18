@@ -15,11 +15,6 @@ func _ready():
 	$GameOver/ButtonRestart.connect("button_down", self, "handle_restart")
 	$GameOver/ButtonLeaderboard.connect("button_down", self, "handle_leaderboard")
 
-func restart_game():
-	GM.game_over = false
-	GM.state = GM.STATE.MAIN_SCREEN
-	get_tree().reload_current_scene()
-
 func _process(delta):
 	if GM.state == GM.STATE.PLAYING:
 		$Score.text = Util.format_score(GM.score)
@@ -39,9 +34,6 @@ func _process(delta):
 
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
-
-	if $GameOver.visible && Input.is_action_pressed("ui_accept"):
-		restart_game()
 
 	# Prevent empty submit
 	if $GameOver/User_form/EnterName.text.empty() && !$GameOver/User_form/Submit.disabled:
@@ -63,7 +55,7 @@ func handle_submit():
 		show_scores()
 
 func handle_restart():
-	restart_game()
+	GM.restart_game()
 
 func handle_leaderboard():
 	show_scores()
