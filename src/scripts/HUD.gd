@@ -42,7 +42,8 @@ func _on_Submit_pressed():
 		SilentWolf.Scores.persist_score(GM.player_name, GM.score)
 		yield(SilentWolf.Scores.get_high_scores(), "sw_scores_received") 
 		#print("Scores: " + str(SilentWolf.Scores.scores))
-		get_tree().change_scene_to(LEADERBOARD)
+		var a = LEADERBOARD.instance()
+		get_tree().current_scene.add_child(a)
 		GM.game_over = false
 		$GameOver.hide()
 		#get_tree().reload_current_scene()
