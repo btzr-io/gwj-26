@@ -23,7 +23,7 @@ config/icon="res://icon.png"
 
 GM="*res://scripts/autoload/GameManager.gd"
 Util="*res://scripts/Util.gd"
-SilentWolf="*res://addons/silent_wolf/silent_wolf/SilentWolf.gd"
+SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 
 [debug]
 

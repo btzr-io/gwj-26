@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/info_icon.png-10fe419bcb1c3b036b5742f086c1c06a.stex"
+path="res://.import/checkbox_checked.png-a8704d0614a98c80620c9451baa9e021.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/silent_wolf/silent_wolf/assets/gfx/info_icon.png"
-dest_files=[ "res://.import/info_icon.png-10fe419bcb1c3b036b5742f086c1c06a.stex" ]
+source_file="res://addons/silent_wolf/assets/gfx/checkbox_checked.png"
+dest_files=[ "res://.import/checkbox_checked.png-a8704d0614a98c80620c9451baa9e021.stex" ]
 
 [params]
 

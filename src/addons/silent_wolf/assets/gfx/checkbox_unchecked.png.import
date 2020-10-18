@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/checkbox_checked.png-f67be71bd3c66a115d3cddd0499b068d.stex"
+path="res://.import/checkbox_unchecked.png-747244fa66895a7a282a8f1df36959ae.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/silent_wolf/silent_wolf/assets/gfx/checkbox_checked.png"
-dest_files=[ "res://.import/checkbox_checked.png-f67be71bd3c66a115d3cddd0499b068d.stex" ]
+source_file="res://addons/silent_wolf/assets/gfx/checkbox_unchecked.png"
+dest_files=[ "res://.import/checkbox_unchecked.png-747244fa66895a7a282a8f1df36959ae.stex" ]
 
 [params]
 

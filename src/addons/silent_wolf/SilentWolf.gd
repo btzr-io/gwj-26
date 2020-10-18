@@ -35,9 +35,9 @@ var auth_config = {
 	"saved_session_expiration_days": 30
 }
 
-var auth_script = load("res://addons/silent_wolf/silent_wolf/Auth/Auth.gd")
-var scores_script = load("res://addons/silent_wolf/silent_wolf/Scores/Scores.gd")
-var players_script = load("res://addons/silent_wolf/silent_wolf/Players/Players.gd")
+var auth_script = load("res://addons/silent_wolf/Auth/Auth.gd")
+var scores_script = load("res://addons/silent_wolf/Scores/Scores.gd")
+var players_script = load("res://addons/silent_wolf/Players/Players.gd")
 
 func _init():
 	print("SW Init timestamp: " + str(OS.get_time()))

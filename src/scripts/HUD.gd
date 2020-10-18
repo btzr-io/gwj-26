@@ -5,7 +5,7 @@ extends CanvasLayer
 # var a = 2
 # var b = "text"
 
-const LEADERBOARD = preload("res://addons/silent_wolf/silent_wolf/Scores/Leaderboard.tscn")
+const LEADERBOARD = preload("res://addons/silent_wolf/Scores/Leaderboard.tscn")
 
 var check_box = null
 
@@ -48,10 +48,10 @@ func _on_Submit_pressed():
 		SilentWolf.Scores.persist_score(GM.player_name, GM.score)
 		yield(SilentWolf.Scores.get_high_scores(), "sw_scores_received") 
 		print("Scores: " + str(SilentWolf.Scores.scores))
-		#get_tree().change_scene_to(LEADERBOARD)
+		get_tree().change_scene_to(LEADERBOARD)
 		GM.game_over = false
 		$GameOver.hide()
-		get_tree().reload_current_scene()
+		#get_tree().reload_current_scene()
 
 func _on_Button_pressed():
 	$GameOver/NeedName.hide()
