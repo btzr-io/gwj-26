@@ -8,10 +8,9 @@ extends CanvasLayer
 const LEADERBOARD = preload("res://scenes/Screens/Leaderboard.tscn")
 
 var new_name = null
-var submit_button = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	submit_button = $GameOver/User_form/Submit.connect("button_down", self, "handle_submit")
+	$GameOver/User_form/Submit.connect("button_down", self, "handle_submit")
 	$GameOver/User_form/EnterName.text = GM.player_name
 	$GameOver/ButtonRestart.connect("button_down", self, "handle_restart")
 	$GameOver/ButtonLeaderboard.connect("button_down", self, "handle_leaderboard")

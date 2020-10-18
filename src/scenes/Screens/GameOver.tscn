@@ -4,9 +4,9 @@
 [ext_resource path="res://assets/fonts/miglia/MigliaFur.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/screens/GameOver.gd" type="Script" id=3]
 
-[sub_resource type="StyleBoxEmpty" id=17]
+[sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="StyleBoxFlat" id=14]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0, 0, 0, 0.313726 )
 corner_radius_top_left = 40
 corner_radius_top_right = 40
@@ -21,7 +21,7 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxFlat" id=13]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0, 0, 0, 0.392157 )
 border_width_bottom = 10
 border_color = Color( 1, 0.954427, 0.671875, 1 )
@@ -29,7 +29,7 @@ expand_margin_left = 25.0
 expand_margin_right = 25.0
 expand_margin_top = 20.0
 
-[sub_resource type="StyleBoxFlat" id=12]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0, 0, 0, 0.196078 )
 border_width_bottom = 10
 border_color = Color( 0.8, 0.8, 0.8, 0.294118 )
@@ -37,32 +37,32 @@ expand_margin_left = 25.0
 expand_margin_right = 25.0
 expand_margin_top = 20.0
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=6]
 size = 90
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=10]
+[sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0, 0, 0, 0.588235 )
 corner_radius_top_left = 70
 corner_radius_top_right = 70
 corner_radius_bottom_right = 70
 corner_radius_bottom_left = 70
 
-[sub_resource type="StyleBoxFlat" id=18]
-corner_radius_top_left = 70
-corner_radius_top_right = 70
-corner_radius_bottom_right = 70
-corner_radius_bottom_left = 70
-
-[sub_resource type="StyleBoxFlat" id=15]
-bg_color = Color( 0, 0, 0, 0.196078 )
+[sub_resource type="StyleBoxFlat" id=8]
 corner_radius_top_left = 70
 corner_radius_top_right = 70
 corner_radius_bottom_right = 70
 corner_radius_bottom_left = 70
 
 [sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0, 0, 0, 0.196078 )
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0, 0, 0, 0.392157 )
 corner_radius_top_left = 70
 corner_radius_top_right = 70
@@ -70,19 +70,19 @@ corner_radius_bottom_right = 70
 corner_radius_bottom_left = 70
 corner_detail = 10
 
-[sub_resource type="DynamicFont" id=16]
+[sub_resource type="DynamicFont" id=11]
 size = 75
 extra_spacing_top = 15
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=12]
 size = 250
 outline_size = 15
 outline_color = Color( 0, 0, 0, 0.196078 )
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=13]
 size = 125
 outline_size = 10
 outline_color = Color( 0, 0, 0, 0.196078 )
@@ -90,13 +90,12 @@ use_filter = true
 extra_spacing_top = 10
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=19]
+[sub_resource type="DynamicFont" id=14]
 size = 75
 extra_spacing_top = 15
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=8]
-resource_name = "show"
+[sub_resource type="Animation" id=15]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 2
@@ -135,14 +134,17 @@ tracks/2/keys = {
 }
 
 [node name="GameOver" type="Panel"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
 self_modulate = Color( 1, 1, 1, 0 )
+margin_top = 1980.0
 margin_right = 1280.0
-margin_bottom = 1920.0
+margin_bottom = 3900.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_pivot_offset = Vector2( 640, 960 )
 mouse_filter = 2
-custom_styles/panel = SubResource( 17 )
+custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -160,12 +162,11 @@ __meta__ = {
 }
 
 [node name="User_form" type="Panel" parent="."]
-margin_left = 65.0
+margin_left = -1150.0
 margin_top = 680.0
-margin_right = 1215.0
 margin_bottom = 1410.0
 rect_pivot_offset = Vector2( 575, 365 )
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -193,9 +194,9 @@ margin_bottom = 410.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_pivot_offset = Vector2( 400, 50 )
-custom_styles/focus = SubResource( 13 )
-custom_styles/normal = SubResource( 12 )
-custom_fonts/font = SubResource( 1 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/selection_color = Color( 1, 1, 1, 0.392157 )
 custom_colors/cursor_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
@@ -214,11 +215,11 @@ margin_left = 365.0
 margin_top = 493.678
 margin_right = 785.0
 margin_bottom = 633.678
-custom_styles/hover = SubResource( 10 )
-custom_styles/pressed = SubResource( 18 )
-custom_styles/disabled = SubResource( 15 )
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 16 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 disabled = true
 text = "Submit"
@@ -230,7 +231,7 @@ __meta__ = {
 margin_top = 160.0
 margin_right = 1280.0
 margin_bottom = 471.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "0.0 M"
 align = 1
@@ -245,7 +246,7 @@ modulate = Color( 0.8, 0.8, 0.8, 1 )
 margin_top = 425.0
 margin_right = 1280.0
 margin_bottom = 587.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "NEW SCORE!"
 align = 1
@@ -260,11 +261,11 @@ margin_left = 47.243
 margin_top = 1580.0
 margin_right = 531.243
 margin_bottom = 1720.0
-custom_styles/hover = SubResource( 10 )
-custom_styles/pressed = SubResource( 18 )
-custom_styles/disabled = SubResource( 15 )
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 16 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "retry"
 __meta__ = {
@@ -276,11 +277,11 @@ margin_left = 591.789
 margin_top = 1580.0
 margin_right = 1221.79
 margin_bottom = 1720.0
-custom_styles/hover = SubResource( 10 )
-custom_styles/pressed = SubResource( 18 )
-custom_styles/disabled = SubResource( 15 )
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 19 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 14 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "LeaderBoard"
 __meta__ = {
@@ -288,4 +289,4 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/show = SubResource( 8 )
+anims/show = SubResource( 15 )
