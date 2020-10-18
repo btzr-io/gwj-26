@@ -92,11 +92,17 @@ __meta__ = {
 visible = true
 margin_right = 40.0
 margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="HUD/GameOver"]
 margin_right = 1282.0
 margin_bottom = 1916.0
-color = Color( 0.172549, 0.145098, 0.145098, 0.533333 )
+color = Color( 0, 0, 0, 0.533333 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="HUD/GameOver/ColorRect"]
 margin_left = 11.3264
