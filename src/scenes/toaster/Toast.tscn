@@ -60,6 +60,7 @@ __meta__ = {
 [node name="Origin" type="Position2D" parent="."]
 
 [node name="Score_limit" type="Position2D" parent="."]
+visible = false
 show_behind_parent = true
 position = Vector2( 640, 0 )
 z_index = 2
