@@ -94,7 +94,7 @@ func launch(upspeed : float, toasting_degree):
 func _on_Toast_body_entered(body):
 	if body && body is PhysicsBody2D:
 		if body.collision_layer == Util.name_to_mask["walls"]:
-			print("Toast hits wall")
+			#print("Toast hits wall")
 			#vertical_force += linear_velocity.y * -2.2
 			#horizontal_force += -linear_velocity.x +(800 if position.x < 500 else -800 )
 			linear_velocity = Vector2(1400 if position.x < 500 else -1400, -800 if linear_velocity.y > -800 else linear_velocity.y)
