@@ -21,9 +21,18 @@ func _process(delta):
 	
 	if GM.game_over == true:
 		$GameOver.popup()
+		$GameOver/ColorRect/EnterName.caret_blink = true
+		$GameOver/ColorRect/EnterName.set_placeholder("Enter Name")
 		
-	if Input.action_press("ui_cancel"):
+	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
+		
+	if Input.is_action_pressed("ui_accept"):
+		get_tree().reload_current_scene()
+		GM.game_over = false
+		$GameOver.hide()
+		
 
 func _on_Submit_pressed():
+	GM.player_name = $GameOver/ColorRect/EnterName.get_text()
 	get_tree().quit()

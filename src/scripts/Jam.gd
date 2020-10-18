@@ -7,7 +7,7 @@ var bottom_destroy_height : float = 0
 func _on_Area2D_body_entered(_body: RigidBody2D):
 	#update speed here
 	if _body && _body.name == "Toast":
-		_body.linear_velocity.y = _body.linear_velocity.y * 0.75
+		_body.linear_velocity.y = _body.linear_velocity.y * 0.50
 		#_body.set_friction(0.7)
 		_body.combo_count = 0
 		sound_manager.jam_collected()
