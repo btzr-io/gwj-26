@@ -45,7 +45,7 @@ func _process(delta):
 	var new_position = global_position.y
 	# Falling
 	if direction_down:
-		smooth_speed = lerp(smooth_speed, 0.0, 4  * delta)
+		smooth_speed = lerp(smooth_speed, 0.0, 3.0  * delta)
 	else:
 		# Increase speed if object is too far
 		smooth_speed = clamp(move_speed * pow(distance_modifier, distance_modifier) * delta, 0.0, 1.0)

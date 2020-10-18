@@ -25,7 +25,7 @@ func _ready():
 	connect("start_falling", self, "handle_falling")
 
 func handle_screen_exit():
-	yield(get_tree().create_timer(0.3), "timeout")
+	yield(get_tree().create_timer(1.25), "timeout")
 	GM.game_over = true
 
 func handle_falling():
