@@ -20,7 +20,7 @@ func _ready():
 		"log_level": 1
 		})
 	SilentWolf.configure_scores({
-		"open_scene_on_close": "res://scenes/toaster_test.tscn"
+		"open_scene_on_close": "res://scenes/Start.tscn"
 		})
 
 

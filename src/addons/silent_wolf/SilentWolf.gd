@@ -17,8 +17,8 @@ onready var Players = Node.new()
 #
 var config = {
 	"api_key": "FmKF4gtm0Z2RbUAEU62kZ2OZoYLj4PYOURAPIKEY",
-	"game_id": "YOURGAMEID",
-	"game_version": "0.0.0",
+	"game_id": "CarbUp1",
+	"game_version": "1.0.0",
 	"log_level": 1
 }
 
