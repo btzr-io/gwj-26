@@ -78,7 +78,7 @@ func _process(delta):
 	
 	# Lever of the toaster is pressed down
 	prev_active = active
-	var next_active = ( clicked || key_active ) && $Handler.position.y >= $Limit_bottom.position.y - 1.0
+	var next_active = ( clicked || key_active ) && $Handler.position.y >= $Limit_bottom.position.y - 0.25
 	
 	# Only update on changes
 	if next_active != prev_active:

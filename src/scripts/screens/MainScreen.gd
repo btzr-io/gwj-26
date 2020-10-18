@@ -15,5 +15,7 @@ func _ready():
 		lever = toaster.get_node_or_null("Lever")
 
 func _process(delta):
-	modulate.a = lerp( modulate.a, lever.progress, 0.4)
-	position.y = lerp(position.y, 250 * lever.progress, 0.4)
+	var inverse = ( 1.0 - lever.progress ) + 0.25
+	var smooth_time = 10 * pow(inverse, inverse)  * delta
+	modulate.a = lerp( modulate.a, lever.progress, smooth_time)
+	position.y = lerp(position.y, 200 * lever.progress, smooth_time)
