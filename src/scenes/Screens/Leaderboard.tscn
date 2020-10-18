@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/fonts/miglia/Miglia.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://addons/silent_wolf/common/SWButton.tscn" type="PackedScene" id=2]
@@ -19,6 +19,9 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="Theme" id=4]
 default_font = SubResource( 3 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "show"
 
 [node name="Leaderboard" type="Node2D"]
 script = ExtResource( 3 )
@@ -91,4 +94,7 @@ margin_left = 517.0
 margin_right = 740.0
 margin_bottom = 104.0
 text = "Close"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/show = SubResource( 5 )
 [connection signal="pressed" from="Board/CloseButtonContainer/CloseButton" to="." method="_on_CloseButton_pressed"]
