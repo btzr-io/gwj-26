@@ -75,7 +75,7 @@ margin_right = 1280.0
 margin_bottom = 1860.4
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "1.2 M"
+text = "0.0 M"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

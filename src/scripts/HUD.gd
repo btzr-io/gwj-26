@@ -46,6 +46,7 @@ func show_scores():
 	#print("Scores: " + str(SilentWolf.Scores.scores))
 	var leaderboard = LEADERBOARD.instance()
 	add_child(leaderboard)
+	leaderboard.show_screen()
 	# get_tree().reload_current_scene()
 
 func handle_submit():

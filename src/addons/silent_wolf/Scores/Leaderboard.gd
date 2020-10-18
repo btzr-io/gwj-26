@@ -106,3 +106,5 @@ func hide_message():
 
 func _on_CloseButton_pressed():
 	GM.restart_game()
+func show_screen():
+	$AnimationPlayer.play("show")
