@@ -15,7 +15,13 @@ func _ready():
 	
 func _process(delta):
 	$Score.text = Util.format_score(GM.score)
-	$Combo.text = str(GM.combo_count,"x")
+	
+	if GM.combo_count > 0:
+		$Combo.modulate.a = lerp($Combo.modulate.a, 1.0, 5.0 * delta)
+		$Combo.text = str(GM.combo_count,"x")
+		
+	if GM.combo_count == 0:
+				$Combo.modulate.a = lerp($Combo.modulate.a, 0.0, 5.0 * delta)
 	
 	if GM.game_over == true:
 		$GameOver.popup()

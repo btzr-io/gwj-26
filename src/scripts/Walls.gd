@@ -1,32 +1,5 @@
 extends Node2D
 
-const COLORS = [
-	# Green
-	"#16a085",
-	# Dark green,
-	"#218c74",
-	# Red
-	"#c44569",
-	# Aqua
-	"#1289A7",
-	# Blue
-	"#2980b9",
-	# Dark bluem
-	"#227093",
-	# Purple
-	"#574b90",
-	# Dark purple
-	"#40407a",
-	# Orange
-	"#e17055",
-	# Pink
-	"#e84393",
-	# Yellow,
-	"#fdcb6e",
-]
-
-
-
 var layers = ["Front", "Back", "Middle"]
 export(int) var expand_level setget set_expand_level
 
@@ -44,12 +17,12 @@ func init_noise(noise_seed : int):
 
 func expand_walls(level):
 	randomize()
-	$Background/ColorRect.rect_size.y += 1920  * level
-	$Background/ColorRect.rect_position.y -= 1920 * level
-	$ColorRect.rect_size.y += 1920  * level
-	$ColorRect.rect_position.y -= 1920 * level
+	#$Background/ColorRect.rect_size.y += 1920  * level
+	#$Background/ColorRect.rect_position.y -= 1920 * level
+	#$ColorRect.rect_size.y += 1920  * level
+	#$ColorRect.rect_position.y -= 1920 * level
 	#$ColorRect.color = Color(COLORS[randi() % COLORS.size()])
-	color_start_index = randi() % COLORS.size()
+	color_start_index = randi() % Util.COLORS.size()
 	
 	init_noise(randi())
 	
@@ -93,12 +66,12 @@ func get_bg_color_for_ypos(ypos : float)->Color:
 	#Fade between the defined colors
 	var f : float = ypos*0.0001-2-color_start_index
 	var weight = wrapf(f, 0, 1)
-	var to_index : int = int(f) % COLORS.size()
-	var from_index : int = (int(f)-1) % COLORS.size()
-	return lerp(Color(COLORS[from_index]), Color(COLORS[to_index]), weight)
+	var to_index : int = int(f) % Util.COLORS.size()
+	var from_index : int = (int(f)-1) % Util.COLORS.size()
+	return lerp(Color(Util.COLORS[from_index]), Color(Util.COLORS[to_index]), weight)
 	
 func update_bg_color():
-	$ColorRect.color = get_bg_color_for_ypos(cam.position.y)
-	
+	GM.bg_color = get_bg_color_for_ypos(cam.position.y)
+	$Ovelrlay/ColorRect.color = GM.bg_color
 func _process(delta):
 	update_bg_color()

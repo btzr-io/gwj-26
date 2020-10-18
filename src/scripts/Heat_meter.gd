@@ -23,6 +23,10 @@ func degrees_to_percent(degrees):
 	return (degrees / 180) * 100
 
 func _process(delta):
+	if visible and modulate.a > 0:
+		$Front.modulate = Color(GM.bg_color)
+		$Progress/Indicator_border.modulate = Color(GM.bg_color)
+		$Control/Mask.modulate = Color(GM.bg_color)
 	if state == "measuring":
 		update_progress()
 

@@ -3,6 +3,31 @@ extends Node
 var mask_to_name = {}
 var name_to_mask = {}
 
+const COLORS = [
+	# Green
+	"#16a085",
+	# Dark green,
+	"#218c74",
+	# Red
+	"#c44569",
+	# Aqua
+	"#1289A7",
+	# Blue
+	"#2980b9",
+	# Dark bluem
+	"#227093",
+	# Purple
+	"#574b90",
+	# Dark purple
+	"#40407a",
+	# Orange
+	"#e17055",
+	# Pink
+	"#e84393",
+	# Yellow,
+	"#fdcb6e",
+]
+
 func format_score(n):
 	var formated = str(n).pad_zeros(1)
 	if formated.split('.').size() <= 1:

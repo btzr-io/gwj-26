@@ -16,13 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="src"
-run/main_scene="res://scenes/Start.tscn"
+run/main_scene="res://scenes/Screens/Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-GM="*res://scripts/autoload/GameManager.gd"
 Util="*res://scripts/Util.gd"
+GM="*res://scripts/autoload/GameManager.gd"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 
 [debug]
@@ -77,6 +77,5 @@ launch={
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

@@ -37,7 +37,10 @@ func handle_screen_exit():
 func handle_falling():
 	GM.last_score = GM.score
 	$Score_limit.visible = true
-	$Score_limit.get_node("Line/Label").text = Util.format_score(GM.last_score)
+	var label = $Score_limit.get_node("Line/Label")
+	label.text = Util.format_score(GM.last_score)
+	label.modulate = Color(GM.bg_color).lightened(0.75)
+	$Score_limit.get_node("Line/dash_line").modulate = GM.bg_color
 	$Score_limit.get_node("AnimationPlayer").play("show")
 	$Score_limit.global_position.y = global_position.y
 

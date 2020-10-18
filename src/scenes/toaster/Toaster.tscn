@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/sprites/toaster/toaster_front.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/toaster/toaster_shadow.png" type="Texture" id=8]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -73,7 +73,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 195 ), Vector2( 0, 195 ), Vector2( 0, 195 ), Vector2( 0, 100 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 length = 0.4
 step = 0.05
 tracks/0/type = "value"
@@ -137,7 +137,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 195 ), Vector2( 0, 195 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=3]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Box:scale")
@@ -244,6 +244,6 @@ position = Vector2( 0, -380 )
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 playback_process_mode = 0
-anims/jump = SubResource( 2 )
-anims/launch_hold = SubResource( 3 )
-anims/launch_release = SubResource( 10 )
+anims/jump = SubResource( 1 )
+anims/launch_hold = SubResource( 2 )
+anims/launch_release = SubResource( 3 )

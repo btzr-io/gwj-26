@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/sprites/heat_meter/heat_meter_indicator.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/heat_meter/heat_meter_mask.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/heat_meter/heat_meter_back.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/heat_meter/heat_meter_front.png" type="Texture" id=4]
 [ext_resource path="res://scripts/Heat_meter.gd" type="Script" id=5]
+[ext_resource path="res://assets/sprites/heat_meter/heat_meter_indicator_front.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "progress_loop"
@@ -204,12 +205,21 @@ position = Vector2( 380, 376 )
 texture = ExtResource( 2 )
 
 [node name="Front" type="Sprite" parent="."]
+self_modulate = Color( 0.427451, 0.427451, 0.427451, 1 )
 texture = ExtResource( 4 )
 
 [node name="Progress" type="Position2D" parent="."]
 
-[node name="heat_meter_indicator" type="Sprite" parent="Progress"]
+[node name="Indicator_border" type="Sprite" parent="Progress"]
+self_modulate = Color( 0.427451, 0.427451, 0.427451, 1 )
 position = Vector2( -265, 0 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 6 )
+
+[node name="Indicator" type="Sprite" parent="Progress"]
+show_behind_parent = true
+position = Vector2( -265, 0 )
+scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 
 [node name="Animator" type="AnimationPlayer" parent="."]

@@ -7,6 +7,7 @@ var max_score = 0
 var last_score = 0
 var combo_count = 0
 var player_name = "BAKEN"
+var bg_color = Util.COLORS[0]
 
 const STATE = {
 	MAIN_SCREEN  = 0,
