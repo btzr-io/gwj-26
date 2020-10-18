@@ -33,7 +33,7 @@ func _process(delta):
 	if disabled:
 		var new_position = lerp($Handler.position.y, $Limit_top.position.y, 0.4)
 		$Handler.position.y = new_position
-		update_progress()
+		# update_progress()
 		return
 		
 	var touch_released = !Input.is_mouse_button_pressed(BUTTON_LEFT) && clicked
