@@ -20,6 +20,7 @@ var angular_friction = 0.2
 var last_wall_hit_time : float = 0
 
 var combo_count = 0
+var butter_boost = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,6 +51,8 @@ func update_score():
 	var new_score =  lerp(GM.score, stepify(score / 1000, 0.1), 0.25)
 	GM.score = stepify(new_score, 0.1)
 	GM.combo_count = combo_count
+	if combo_count == butter_boost:
+		linear_velocity.y = -8000
 
 func _process(delta):
 	update_score()
