@@ -11,6 +11,8 @@ bounce = 1.0
 
 [sub_resource type="DynamicFont" id=5]
 size = 80
+outline_size = 10
+outline_color = Color( 0, 0, 0, 0.196078 )
 font_data = ExtResource( 4 )
 
 [sub_resource type="Animation" id=6]

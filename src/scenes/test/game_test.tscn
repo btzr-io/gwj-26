@@ -20,7 +20,8 @@ font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 100
-outline_color = Color( 1, 1, 1, 0 )
+outline_size = 10
+outline_color = Color( 1, 1, 1, 0.196078 )
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -59,6 +60,7 @@ font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 100
+extra_spacing_space = 100
 font_data = ExtResource( 5 )
 
 [node name="Node2D" type="Node2D"]
@@ -68,6 +70,7 @@ drag_margin_bottom = 1.0
 move_speed = 3.0
 
 [node name="Walls" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1.18921, -1.18921 )
 z_index = -2
 expand_level = 100
 
@@ -253,7 +256,7 @@ margin_bottom = 665.776
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 10 )
 bbcode_enabled = true
-bbcode_text = "[center][shake rate=10 level=20]Title[/shake][/center]"
+bbcode_text = "[center][shake rate=15 level=15]Title[/shake][/center]"
 text = "Title"
 scroll_active = false
 __meta__ = {
@@ -262,13 +265,14 @@ __meta__ = {
 
 [node name="Title2" type="RichTextLabel" parent="MainScreen/MainTitle"]
 modulate = Color( 1, 1, 1, 0.588235 )
-margin_top = 695.0
-margin_right = 1280.0
-margin_bottom = 776.0
+margin_left = -1.0
+margin_top = 677.0
+margin_right = 1279.0
+margin_bottom = 755.0
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 9 )
 bbcode_enabled = true
-bbcode_text = "[center][shake rate=10 level=20]SUBTITLE[/shake][/center]"
+bbcode_text = "[center][shake rate=5 level=10]SUBTITLE[/shake][/center]"
 text = "SUBTITLE"
 scroll_active = false
 __meta__ = {
