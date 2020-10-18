@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/toaster/Toaster.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/FollowingCamera2D.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/audio/collect_jam.wav" type="AudioStream" id=9]
 [ext_resource path="res://assets/audio/wholesome_music.ogg" type="AudioStream" id=10]
 [ext_resource path="res://scripts/screens/MainScreen.gd" type="Script" id=11]
+[ext_resource path="res://scenes/Screens/GameOver.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -25,40 +26,10 @@ outline_color = Color( 0, 0, 0, 0.196078 )
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 100
-use_filter = true
+size = 200
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 75
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 200
-outline_size = 2
-outline_color = Color( 0.243137, 0.137255, 0.137255, 1 )
-use_filter = true
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=6]
-size = 80
-use_filter = true
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=7]
-size = 50
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=8]
-size = 80
-use_filter = true
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=9]
-size = 200
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=10]
 size = 100
 extra_spacing_space = 100
 font_data = ExtResource( 5 )
@@ -123,123 +94,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GameOver" type="Popup" parent="HUD"]
-margin_right = 1281.0
-margin_bottom = 1923.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="HUD/GameOver"]
-margin_right = 1274.0
-margin_bottom = 1930.0
-color = Color( 0.196078, 0.176471, 0.176471, 0.866667 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="EnterName" type="LineEdit" parent="HUD/GameOver/ColorRect"]
-margin_left = 193.634
-margin_top = 996.177
-margin_right = 1102.63
-margin_bottom = 1139.18
-custom_fonts/font = SubResource( 3 )
-custom_colors/selection_color = Color( 0, 0, 0, 0.611765 )
-custom_colors/cursor_color = Color( 0.917647, 0.886275, 0.886275, 1 )
-custom_colors/font_color = Color( 0.92549, 0.882353, 0.882353, 0.823529 )
-align = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Submit" type="Button" parent="HUD/GameOver/ColorRect"]
-margin_left = 501.174
-margin_top = 1215.98
-margin_right = 782.174
-margin_bottom = 1333.98
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0.878431, 0.803922, 0.576471, 1 )
-custom_colors/font_color_hover = Color( 0.733333, 0.164706, 0.0313726, 1 )
-custom_colors/font_color_pressed = Color( 0.521569, 0.529412, 0.901961, 1 )
-text = "Submit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GG" type="Label" parent="HUD/GameOver/ColorRect"]
-margin_left = 7.96277
-margin_top = 99.0137
-margin_right = 1285.97
-margin_bottom = 458.012
-custom_fonts/font = SubResource( 5 )
-custom_colors/font_color = Color( 0.737255, 0.207843, 0.207843, 1 )
-text = "GAME OVER"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Message" type="Label" parent="HUD/GameOver/ColorRect"]
-margin_left = 0.363525
-margin_top = 433.91
-margin_right = 1278.36
-margin_bottom = 952.91
-custom_fonts/font = SubResource( 6 )
-custom_colors/font_color = Color( 0.870588, 0.85098, 0.729412, 1 )
-text = "NEW HIGH SCORE!
-
-Enter your name below for our leaderboard."
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NeedName" type="Popup" parent="HUD/GameOver"]
-margin_left = 96.1665
-margin_top = 560.029
-margin_right = 1168.17
-margin_bottom = 1095.03
-
-[node name="ColorRect" type="ColorRect" parent="HUD/GameOver/NeedName"]
-margin_top = -14.0
-margin_right = 1077.0
-margin_bottom = 542.0
-color = Color( 0.188235, 0.156863, 0.156863, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NeedInfo" type="Label" parent="HUD/GameOver/NeedName/ColorRect"]
-margin_left = 266.113
-margin_top = 76.4558
-margin_right = 804.113
-margin_bottom = 226.456
-custom_fonts/font = SubResource( 7 )
-custom_colors/font_color = Color( 0.815686, 0.807843, 0.678431, 1 )
-text = "Please enter a name before hitting Submit. "
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="HUD/GameOver/NeedName/ColorRect"]
-margin_left = 381.495
-margin_top = 328.098
-margin_right = 707.495
-margin_bottom = 436.098
-custom_fonts/font = SubResource( 8 )
-custom_colors/font_color = Color( 0.811765, 0.698039, 0.176471, 1 )
-custom_colors/font_color_hover = Color( 0.729412, 0.223529, 0.0901961, 1 )
-custom_colors/font_color_pressed = Color( 0.270588, 0.290196, 0.796078, 1 )
-text = "Accept"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="GameOver" parent="HUD" instance=ExtResource( 12 )]
 
 [node name="MainScreen" type="Node2D" parent="."]
 position = Vector2( 0, 100 )
@@ -252,7 +107,7 @@ margin_top = 503.776
 margin_right = 1280.0
 margin_bottom = 665.776
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 9 )
+custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[center][shake rate=15 level=15]Title[/shake][/center]"
 text = "Title"
@@ -268,7 +123,7 @@ margin_top = 677.0
 margin_right = 1279.0
 margin_bottom = 755.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 10 )
+custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
 bbcode_text = "[center][shake rate=5 level=10]SUBTITLE[/shake][/center]"
 text = "SUBTITLE"
@@ -278,5 +133,3 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MainScreen"]
-[connection signal="pressed" from="HUD/GameOver/ColorRect/Submit" to="HUD" method="_on_Submit_pressed"]
-[connection signal="pressed" from="HUD/GameOver/NeedName/ColorRect/Button" to="HUD" method="_on_Button_pressed"]
