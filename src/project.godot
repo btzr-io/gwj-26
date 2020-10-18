@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="src"
-run/main_scene="res://scenes/test/toaster_test.tscn"
+run/main_scene="res://scenes/Start.tscn"
 config/icon="res://icon.png"
 
 [autoload]
