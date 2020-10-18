@@ -95,7 +95,7 @@ func launch(upspeed : float, toasting_degree):
 	mode=RigidBody2D.MODE_RIGID
 	linear_velocity = Vector2(0, -upspeed)
 	toasting_degree = clamp(toasting_degree, 0, 1)
-	$Sprite.modulate = Color(1-toasting_degree, 1-toasting_degree, 1-toasting_degree)
+	# $Sprite.modulate = Color(1-toasting_degree, 1-toasting_degree, 1-toasting_degree)
 	emit_signal("start_rising")
 	var cam = $"../FollowingCamera2D"
 	if cam:
