@@ -18,7 +18,12 @@ func _ready():
 	$Animator.connect("animation_finished", self, "handle_animation_finished")
 	pass # Replace with function body.
 
-
+func _process(delta):
+	var is_playing = GM.state == GM.STATE.PLAYING 
+	
+	if !is_playing:
+		GM.state = GM.STATE.PLAYING
+		
 func handle_animation_finished(anim_name):
 	var played_backwards = $Animator.current_animation_position == 0
 	if anim_name == "launch_hold" && !played_backwards:

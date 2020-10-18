@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scenes/toaster/Toaster.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/FollowingCamera2D.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scripts/SoundManager.gd" type="Script" id=8]
 [ext_resource path="res://assets/audio/collect_jam.wav" type="AudioStream" id=9]
 [ext_resource path="res://assets/audio/wholesome_music.ogg" type="AudioStream" id=10]
+[ext_resource path="res://scripts/screens/MainScreen.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -52,12 +53,12 @@ size = 80
 use_filter = true
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=9]
-size = 100
-font_data = ExtResource( 5 )
-
 [sub_resource type="DynamicFont" id=10]
 size = 200
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 100
 font_data = ExtResource( 5 )
 
 [node name="Node2D" type="Node2D"]
@@ -240,12 +241,31 @@ __meta__ = {
 }
 
 [node name="MainScreen" type="Node2D" parent="."]
+position = Vector2( 0, 100 )
+script = ExtResource( 11 )
 
-[node name="Title2" type="RichTextLabel" parent="MainScreen"]
+[node name="MainTitle" type="Node2D" parent="MainScreen"]
+
+[node name="Title" type="RichTextLabel" parent="MainScreen/MainTitle"]
+margin_top = 503.776
+margin_right = 1280.0
+margin_bottom = 665.776
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = "[center][shake rate=10 level=20]Title[/shake][/center]"
+text = "Title"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title2" type="RichTextLabel" parent="MainScreen/MainTitle"]
 modulate = Color( 1, 1, 1, 0.588235 )
 margin_top = 695.0
 margin_right = 1280.0
 margin_bottom = 776.0
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 9 )
 bbcode_enabled = true
 bbcode_text = "[center][shake rate=10 level=20]SUBTITLE[/shake][/center]"
@@ -255,17 +275,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="RichTextLabel" parent="MainScreen"]
-margin_top = 503.776
-margin_right = 1280.0
-margin_bottom = 665.776
-custom_fonts/normal_font = SubResource( 10 )
-bbcode_enabled = true
-bbcode_text = "[center][shake rate=10 level=20]Title[/shake][/center]"
-text = "Title"
-scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainScreen"]
 [connection signal="pressed" from="HUD/GameOver/ColorRect/Submit" to="HUD" method="_on_Submit_pressed"]
 [connection signal="pressed" from="HUD/GameOver/NeedName/ColorRect/Button" to="HUD" method="_on_Button_pressed"]

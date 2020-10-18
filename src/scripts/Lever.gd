@@ -10,6 +10,7 @@ var prev_active = false
 var grabbed_offset = Vector2.ZERO
 var mouse_position = Vector2.ZERO
 var key_active = false
+var progress = 0.0
 
 signal on_active_update(active_state)
 
@@ -28,13 +29,22 @@ func handle_input(viewport, event, shape_idx):
 		grabbed_offset = $Handler.position - get_global_mouse_position()
 
 func _process(delta):
+		# Prevent any interactions if disabled
+	if disabled:
+		var new_position = lerp($Handler.position.y, $Limit_top.position.y, 0.4)
+		$Handler.position.y = new_position
+		# update_progress()
+		return
+		
 	var touch_released = !Input.is_mouse_button_pressed(BUTTON_LEFT) && clicked
 	var key_released = Input.is_action_just_released("launch")
+	
 	# Action released
-	if disabled && (clicked || key_active) || key_released || touch_released:
+	if key_released || touch_released:
 		clicked = false
 		key_active = false
 		if !active:
+			print_debug("?")
 			$Tween.interpolate_property(
 				$Handler, 
 				"position", 
@@ -45,9 +55,6 @@ func _process(delta):
 				Tween.EASE_IN_OUT
 			)
 			$Tween.start()
-	# Prevent any interactions if disabled
-	if disabled:
-		return
 	# Key active
 	if Input.is_action_pressed("launch"):
 		var new_position = lerp($Handler.position.y, $Limit_bottom.position.y, 0.4)
@@ -71,12 +78,19 @@ func _process(delta):
 	
 	# Lever of the toaster is pressed down
 	prev_active = active
-	var next_active = ( clicked || key_active ) && $Handler.position.y >= $Limit_bottom.position.y - 1.0
+	var next_active = ( clicked || key_active ) && $Handler.position.y >= $Limit_bottom.position.y - 0.25
 	
 	# Only update on changes
 	if next_active != prev_active:
 		active = next_active
 		emit_signal("on_active_update", active)
+	
+	update_progress()
+
+func update_progress():
+	var total = abs($Limit_bottom.position.y - $Limit_top.position.y)
+	var current = abs( $Handler.position.y -  $Limit_bottom.position.y)
+	progress = stepify(current/ total, 0.1)
 
 func draw_limit():
 	$Limit_line.show()
