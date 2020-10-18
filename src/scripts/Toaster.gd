@@ -44,6 +44,7 @@ func handle_active_update(active_state):
 
 func launch_toast():
 	state = STATE.EJECTED
+	$Lever.disabled = true
 	var launch_speed = 1500 + ( $Heat_meter.progress  * $Heat_meter.level * 25 )
 	launch_speed = clamp(launch_speed, MIN_LAUNCH_SPEED, MAX_LAUNCH_SPEED)
 	print_debug(launch_speed)
