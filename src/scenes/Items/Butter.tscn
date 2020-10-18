@@ -7,15 +7,15 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 102.923, 98.9906 )
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=2]
 min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.439759, -360 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Curve" id=2]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0.767045 ), 0.0, 0.0, 0, 0, Vector2( 0.39267, 0.126136 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0.158774, 0.427457, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.0109205, 1, 1, 1, 0 )
 
@@ -48,9 +48,9 @@ linear_accel = 100.0
 linear_accel_random = 0.4
 angle = 25.0
 angle_random = 1.0
-angle_curve = SubResource( 4 )
+angle_curve = SubResource( 2 )
 scale_amount = 1.4
 scale_amount_random = 0.13
-scale_amount_curve = SubResource( 2 )
-color_ramp = SubResource( 5 )
+scale_amount_curve = SubResource( 3 )
+color_ramp = SubResource( 4 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
