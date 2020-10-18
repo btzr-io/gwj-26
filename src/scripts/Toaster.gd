@@ -2,7 +2,15 @@ extends Node2D
 
 const TOAST = preload("res://scenes/toaster/Toast.tscn")
 const MIN_LAUNCH_SPEED = 1250
-const MAX_LAUNCH_SPEED = 5480
+const MAX_LAUNCH_SPEED = 5400
+
+const STATE = {
+	SLEEP = 0,
+	EJECTED = 2,
+	LAUNCHING = 1,
+}
+
+var state = STATE.SLEEP
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,19 +25,25 @@ func handle_animation_finished(anim_name):
 		$Heat_meter.start()
 
 func handle_active_update(active_state):
+	# Lever active
 	if active_state:
+		state = STATE.LAUNCHING
 		$Animator.play("launch_hold")
+	# Launch toast !
 	elif !$Lever.clicked:
 		$Heat_meter.stop()
 		$Animator.play("launch_release")
 		yield(get_tree().create_timer(0.3), "timeout")
 		launch_toast()
-	else:
-		$Heat_meter.stop()
-		$Animator.play_backwards("launch_hold")
+
+# Cancel launch
+#	else:
+#		$Heat_meter.stop()
+#		$Animator.play_backwards("launch_hold")
 
 
 func launch_toast():
+	state = STATE.EJECTED
 	var launch_speed = 1500 + ( $Heat_meter.progress  * $Heat_meter.level * 25 )
 	launch_speed = clamp(launch_speed, MIN_LAUNCH_SPEED, MAX_LAUNCH_SPEED)
 	print_debug(launch_speed)

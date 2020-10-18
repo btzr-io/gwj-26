@@ -29,18 +29,19 @@ func _process(delta):
 	# Action released
 	if !Input.is_mouse_button_pressed(BUTTON_LEFT) && clicked:
 		clicked = false
-		$Tween.interpolate_property(
-			$Handler, 
-			"position", 
-			$Handler.position, 
-			$Limit_top.position,
-			0.72,
-			Tween.TRANS_ELASTIC,
-			Tween.EASE_IN_OUT
-		)
-		$Tween.start()
+		if !active:
+			$Tween.interpolate_property(
+				$Handler, 
+				"position", 
+				$Handler.position, 
+				$Limit_top.position,
+				0.72,
+				Tween.TRANS_ELASTIC,
+				Tween.EASE_IN_OUT
+			)
+			$Tween.start()
 	# Dragging lever
-	if clicked:
+	if !active && clicked:
 		mouse_position =  get_global_mouse_position() + grabbed_offset
 		# Apply limits
 		var limited = clamp(
