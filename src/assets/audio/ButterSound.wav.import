@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ButterSound.wav-380eb51d2147c3edd5b029bc49369fe4.sample"
+
+[deps]
+
+source_file="res://assets/audio/ButterSound.wav"
+dest_files=[ "res://.import/ButterSound.wav-380eb51d2147c3edd5b029bc49369fe4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
