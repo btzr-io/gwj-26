@@ -75,7 +75,7 @@ __meta__ = {
 }
 
 [node name="dash_line" type="Sprite" parent="Score_limit/Line"]
-self_modulate = Color( 1, 1, 1, 0.588235 )
+modulate = Color( 1, 1, 1, 0.294118 )
 position = Vector2( 1.41418, 0 )
 scale = Vector2( 0.3, 0.3 )
 z_index = -2
