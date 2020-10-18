@@ -21,7 +21,7 @@ func _ready():
 func _process(delta):
 	var is_playing = GM.state == GM.STATE.PLAYING 
 	
-	if !is_playing:
+	if !is_playing && $Lever.active:
 		GM.state = GM.STATE.PLAYING
 		
 func handle_animation_finished(anim_name):

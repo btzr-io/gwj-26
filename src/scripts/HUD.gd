@@ -17,11 +17,16 @@ func _ready():
 
 func restart_game():
 	GM.game_over = false
+	GM.state = GM.STATE.MAIN_SCREEN
 	get_tree().reload_current_scene()
 
 func _process(delta):
-	$Score.text = Util.format_score(GM.score)
-
+	if GM.state == GM.STATE.PLAYING:
+		$Score.text = Util.format_score(GM.score)
+	elif GM.score != 0.0:
+		GM.score = 0.0
+		$Score.text = Util.format_score(GM.score)
+	
 	if GM.combo_count > 0:
 		$Combo.modulate.a = lerp($Combo.modulate.a, 1.0, 5.0 * delta)
 		$Combo.text = str(GM.combo_count,"x")
