@@ -76,11 +76,11 @@ func set_physics_position(pos : Vector2):
 	next_physics_process_should_set_position = true
 
 func launch(upspeed : float, toasting_degree):
-	var cam = $"../FollowingCamera2D"
-	if cam:
-		cam.set_following_node($Focus_offset)
 	mode=RigidBody2D.MODE_RIGID
 	linear_velocity = Vector2(0, -upspeed)
 	toasting_degree = clamp(toasting_degree, 0, 1)
 	$Sprite.modulate = Color(1-toasting_degree, 1-toasting_degree, 1-toasting_degree)
 	emit_signal("start_rising")
+	var cam = $"../FollowingCamera2D"
+	if cam:
+		cam.set_following_node($Focus_offset)

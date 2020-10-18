@@ -40,12 +40,12 @@ func _process(delta):
 	
 	#Movement
 	var distance = $Origin.global_position.distance_squared_to(last_follow_position)
-	var distance_modifier = clamp( abs(distance) / 150.0, 0.0, 1.8)
+	var distance_modifier = clamp( abs(distance) / 180.0, 0.0, 1.9)
 	var direction_down = last_follow_position.y >= global_position.y
 	var new_position = global_position.y
 	# Falling
 	if direction_down:
-		smooth_speed = lerp(smooth_speed, 0.0, 4  * delta)
+		smooth_speed = lerp(smooth_speed, 0.0, 4.5  * delta)
 	else:
 		# Increase speed if object is too far
 		smooth_speed = clamp(move_speed * pow(distance_modifier, distance_modifier) * delta, 0.0, 1.0)
