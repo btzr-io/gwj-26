@@ -7,7 +7,7 @@ var max_score = 0
 var last_score = 0
 var combo_count = 0
 
-var player_name
+var player_name = ""
 
 var game_over = false
 
@@ -25,5 +25,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	pass
