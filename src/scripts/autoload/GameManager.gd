@@ -7,7 +7,7 @@ var max_score = 0
 var last_score = 0
 var combo_count = 0
 
-var player_name = ""
+var player_name = "BAKEN"
 
 var game_over = false
 
@@ -20,7 +20,7 @@ func _ready():
 		"log_level": 1
 		})
 	SilentWolf.configure_scores({
-		"open_scene_on_close": "res://scenes/MainPage.tscn"
+		"open_scene_on_close": "res://scenes/toaster_test.tscn"
 		})
 
 

@@ -44,7 +44,7 @@ func spawn_items_at_y(y_pos):
 		var item = BUTTER.instance()
 		item.position = Vector2(x_pos, y_butter)
 		add_child(item)
-		print("placed butter at "+String(x_pos)+";"+String(y_butter))
+		#print("placed butter at "+String(x_pos)+";"+String(y_butter))
 	spawn_butter = !spawn_butter
 	
 	#Spawn jam
@@ -54,7 +54,7 @@ func spawn_items_at_y(y_pos):
 		var item = JAM.instance()
 		item.position = Vector2(x_pos, y_jam)
 		add_child(item)
-		print("placed jam at "+String(x_pos)+";"+String(y_jam))
+		#print("placed jam at "+String(x_pos)+";"+String(y_jam))
 	
 	
 

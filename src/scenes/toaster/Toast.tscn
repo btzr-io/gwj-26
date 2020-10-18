@@ -1,21 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Toast.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/placeholders/toast.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/fx/dash_line.png" type="Texture" id=3]
-[ext_resource path="res://assets/fonts/miglia/Miglia.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.5
 bounce = 1.0
 
-[sub_resource type="DynamicFont" id=2]
-size = 90
-outline_size = 10
-outline_color = Color( 0, 0, 0, 0.196078 )
-font_data = ExtResource( 4 )
-
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "show"
 length = 0.5
 tracks/0/type = "value"
@@ -43,7 +36,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 111.248, 117.591 )
 
 [node name="Toast" type="RigidBody2D"]
@@ -67,7 +60,6 @@ margin_left = -499.929
 margin_top = -117.184
 margin_right = 514.071
 margin_bottom = -34.1838
-custom_fonts/font = SubResource( 2 )
 text = "0.0 M"
 align = 2
 __meta__ = {
@@ -85,7 +77,7 @@ region_enabled = true
 region_rect = Rect2( 270.376, 0, 3520, 72 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Score_limit"]
-anims/show = SubResource( 3 )
+anims/show = SubResource( 2 )
 
 [node name="Origin" type="Position2D" parent="."]
 
@@ -93,7 +85,7 @@ anims/show = SubResource( 3 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 rect = Rect2( -150, -150, 300, 300 )
