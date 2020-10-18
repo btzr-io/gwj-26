@@ -13,14 +13,8 @@ var check_box = null
 func _ready():
 	check_box = $GameOver/ColorRect/EnterName.get_text()
 	
-func format_score(n):
-	var formated = str(n).pad_zeros(1)
-	if formated.split('.').size() <= 1:
-		formated += ".0"
-	return formated + " M"
-	
 func _process(delta):
-	$Score.text = format_score(GM.score)
+	$Score.text = Util.format_score(GM.score)
 	$Combo.text = str(GM.combo_count,"x")
 	
 	if GM.game_over == true:

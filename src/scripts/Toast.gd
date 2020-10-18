@@ -28,8 +28,9 @@ func handle_screen_exit():
 	GM.game_over = true
 
 func handle_falling():
+	GM.last_score = GM.score
 	$Score_limit.visible = true
-	$Score_limit.get_node("Line/Label").text = str(GM.score) + " M"
+	$Score_limit.get_node("Line/Label").text = Util.format_score(GM.last_score)
 	$Score_limit.get_node("AnimationPlayer").play("show")
 	$Score_limit.global_position.y = global_position.y
 
