@@ -22,6 +22,11 @@ func _process(delta):
 		GM.score = 0.0
 		$Score.text = Util.format_score(GM.score)
 	
+	if GM.score > 0:
+		$Score.modulate.a = lerp($Score.modulate.a, 1.0, 5.0 * delta)
+	elif GM.score == 0 && $Score.modulate.a > 0:
+		$Score.modulate.a = lerp($Score.modulate.a, 0.0, 5.0 * delta)
+		
 	if GM.combo_count > 0:
 		$Combo.modulate.a = lerp($Combo.modulate.a, 1.0, 5.0 * delta)
 		$Combo.text = str(GM.combo_count,"x")
