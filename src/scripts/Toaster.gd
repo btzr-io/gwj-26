@@ -38,6 +38,9 @@ func launch_toast():
 	get_tree().current_scene.add_child(toast)
 	toast.global_position = $Spawn.global_position
 	toast.launch(launch_speed, toasting_degree)
+	yield(get_tree().create_timer(0.2), "timeout")
+	toast.z_as_relative = false
+	toast.z_index = 2
 
 # Position to instance the slice of bread
 func get_spawn_position():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/toaster/Lever.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Toaster.gd" type="Script" id=2]
@@ -8,9 +8,6 @@
 [ext_resource path="res://assets/sprites/toaster/toaster_mask.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/toaster/toaster_front.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/toaster/toaster_shadow.png" type="Texture" id=8]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 220, 200 )
 
 [sub_resource type="Animation" id=2]
 length = 0.4
@@ -140,24 +137,6 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 195 ), Vector2( 0, 195 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 220, 160 )
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 230, 120 )
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 200, 300 )
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 220, 100 )
-
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 220, 125 )
-
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 220, 150 )
-
 [sub_resource type="Animation" id=10]
 length = 0.6
 tracks/0/type = "value"
@@ -220,42 +199,6 @@ tracks/4/keys = {
 "update": 0,
 "values": [ Vector2( 0, 195 ), Vector2( 0, 195 ), Vector2( 0, 180 ), Vector2( 0, -240 ), Vector2( 0, 195 ), Vector2( 0, 195 ), Vector2( 0, 195 ) ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("Collision/CollisionShape2D:shape")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 1 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Collision/CollisionShape2D:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 60 ), Vector2( 0, 120 ), Vector2( 0, -80 ), Vector2( 0, -400 ), Vector2( 0, 100 ), Vector2( 0, 50 ), Vector2( 0, 0 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("Collision/CollisionShape2D:disabled")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false ]
-}
 
 [node name="Toaster" type="Node2D"]
 script = ExtResource( 2 )
@@ -299,15 +242,6 @@ __meta__ = {
 
 [node name="Spawn" type="Position2D" parent="."]
 position = Vector2( 0, -380 )
-
-[node name="Collision" type="StaticBody2D" parent="."]
-z_index = 5
-z_as_relative = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
-z_index = 2
-z_as_relative = false
-shape = SubResource( 1 )
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 playback_process_mode = 0
