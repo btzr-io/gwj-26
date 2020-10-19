@@ -59,7 +59,7 @@ func _process(delta):
 	$Focus.global_position.y = global_position.y 
 
 func _physics_process(delta):
-	var horizontal_steering : float = 0
+	var horizontal_steering : float = Input.get_gravity().x*steer_speed
 	if Input.is_action_pressed("steer_left"):
 		horizontal_steering -= steer_speed
 	if Input.is_action_pressed("steer_right"):
