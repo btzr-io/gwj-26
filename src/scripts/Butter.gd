@@ -13,7 +13,8 @@ var bottom_destroy_height : float = 0
 func _on_Area2D_body_entered(_body: RigidBody2D):
 	#update speed here
 	if _body && _body.name == "Toast":
-		_body.linear_velocity.y = -3000
+		if _body.linear_velocity.y > -3000:
+			_body.linear_velocity.y = -3000
 		_body.combo_count = _body.combo_count + 1
 		sound_manager.butter_collected()
 		$Area2D.queue_free()
